@@ -1,65 +1,65 @@
 # General
-msgid "You're already logged in!"
+msgid "Olet jo kirjautunut sisään!"
 msgstr ""
 
-msgid "Submit"
+msgid "Lähetä"
 msgstr ""
 
-msgid "Username"
+msgid "Käyttäjänimi"
 msgstr ""
 
-msgid "Password"
+msgid "Salasana"
 msgstr ""
 
-msgid "Invalid CSRF token"
+msgid "Väärä CSRF token"
 msgstr ""
 
-msgid "Your session has expired. Please try redoing what you were trying to do."
+msgid "Sinun istunto on vanhentunut. Kokeile yrittämään uudelleen mitä kokeilit tehdä."
 msgstr ""
 
-msgid "That user could not be found."
+msgid "Tuota käyttäjää ei löydetty."
 msgstr ""
 
-msgid "Your settings have been saved."
+msgid "Sinun asetukset on tallennettu."
 msgstr ""
 
 # beatmaps/rank_requests.html
-msgid "Request beatmap ranking"
+msgid "Kysy beatmap ranking"
 msgstr ""
 
-msgid "Want to play an unranked beatmap and get pp? You can submit beatmaps rank requests here!"
+msgid "Haluatko pelata unrankattua beatmappia ja saada pp:tä? Voit julkaista beatmap rankkaus pyyntöä täältä!"
 msgstr ""
 
-msgid "Queue status"
+msgid "Jono status"
 msgstr ""
 
-msgid "by you"
+msgid "by sinun"
 msgstr ""
 
 msgid "Requests submitted"
 msgstr ""
 
-msgid "In the past 24 hours"
+msgid "Viime 24 tuntia"
 msgstr ""
 
-msgid "Request a beatmap"
+msgid "Kysy beatmappia"
 msgstr ""
 
-msgid "You cannot currently request beatmaps!"
+msgid "Tällä hetkellä et voi kysyä beatmappeja!"
 msgstr ""
 
 # After this text there is a date. The date is localised separately.
-msgid "Please try again "
+msgid "Kokeile uudelleen "
 msgstr ""
 
 # pwreset/continue.html
-msgid "Reset password"
+msgid "Vaihda Salasana"
 msgstr ""
 
 msgid "Glad to have you back here, %s! To finish the password recovery, type in a new password:"
 msgstr ""
 
-msgid "Nope."
+msgid "Ei."
 msgstr ""
 
 msgid "That key could not be found. Perhaps it expired?"
@@ -69,7 +69,7 @@ msgid "All right, we have changed your password and you should now be able to lo
 msgstr ""
 
 # register/register.html
-msgid "Register"
+msgid "Rekisteröi"
 msgstr ""
 
 msgid "Sorry, it's not possible to register at the moment. Please try again later."
