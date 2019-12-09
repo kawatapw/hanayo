@@ -1,40 +1,40 @@
 # General
 msgid "You're already logged in!"
-msgstr ""
+msgstr "Olet jo kirjautunut sisään!"
 
 msgid "Submit"
-msgstr ""
+msgstr "Julkaise"
 
 msgid "Username"
-msgstr ""
+msgstr "Käyttäjänimi"
 
 msgid "Password"
-msgstr ""
+msgstr "Salasana"
 
 msgid "Invalid CSRF token"
-msgstr ""
+msgstr "Väärä CSRF token"
 
 msgid "Your session has expired. Please try redoing what you were trying to do."
-msgstr ""
+msgstr "Sinun istuntosi on vanhentunut. Kokeile uudelleen mitä kokeilit tehdä."
 
 msgid "That user could not be found."
-msgstr ""
+msgstr "Tuota käyttäjää ei löydetty"
 
 msgid "Your settings have been saved."
-msgstr ""
+msgstr "Sinun asetukset on tallennettu."
 
 # beatmaps/rank_requests.html
 msgid "Request beatmap ranking"
-msgstr ""
+msgstr "Pyydä beatmap rankkausta"
 
 msgid "Want to play an unranked beatmap and get pp? You can submit beatmaps rank requests here!"
-msgstr ""
+msgstr "Haluatko pelata unrankattua beatmappia ja saada pptä? Voit julkaista beatmappia rankattavaksi täältä!"
 
 msgid "Queue status"
 msgstr ""
 
 msgid "by you"
-msgstr ""
+msgstr "sinulta."
 
 msgid "Requests submitted"
 msgstr ""
@@ -43,24 +43,24 @@ msgid "In the past 24 hours"
 msgstr ""
 
 msgid "Request a beatmap"
-msgstr ""
+msgstr "Pyydä beatmappia"
 
 msgid "You cannot currently request beatmaps!"
 msgstr ""
 
 # After this text there is a date. The date is localised separately.
 msgid "Please try again "
-msgstr ""
+msgstr "Kokeile uudelleen "
 
 # pwreset/continue.html
 msgid "Reset password"
-msgstr ""
+msgstr "Vaihda Salasana"
 
 msgid "Glad to have you back here, %s! To finish the password recovery, type in a new password:"
 msgstr ""
 
 msgid "Nope."
-msgstr ""
+msgstr "Ei."
 
 msgid "That key could not be found. Perhaps it expired?"
 msgstr ""
@@ -70,22 +70,22 @@ msgstr ""
 
 # register/register.html
 msgid "Register"
-msgstr ""
+msgstr "Rekisteröi"
 
 msgid "Sorry, it's not possible to register at the moment. Please try again later."
-msgstr ""
+msgstr "Anteeksi, ei ole mahdollista rekisteröityä tällä hetkellä. Kokeile uudelleen myöhemmin."
 
 msgid "Remember: this seems like it's your second account! Do not multiaccount, or you're likely to get restricted!"
-msgstr ""
+msgstr "Muista, näyttää siltä että tämä on sinun toinen käyttäjä. Älä multiaccount, tai sinut luultavasti restrictataan!"
 
 msgid "Username (2 to 15 characters, alphanumeric, spaces, <code>_[]-</code>)"
-msgstr ""
+msgstr "Käyttäjänimi (2 - 15 kirjainta, alphanumeric, spaces, <code>_[]-</code>)"
 
 msgid "Password (at least 8 characters)"
-msgstr ""
+msgstr "Salasana (ainakin 8 kirjainta)"
 
 msgid "Email"
-msgstr ""
+msgstr "Sähköposti"
 
 msgid "You have been successfully registered on Ripple! You now need to verify your account."
 msgstr ""
@@ -181,10 +181,10 @@ msgid "Here's a few things you might want to check out:"
 msgstr ""
 
 msgid "Login"
-msgstr ""
+msgstr "Kirjaudu Sisään"
 
 msgid "Rules"
-msgstr ""
+msgstr "Säännöt"
 
 msgid "Documentation"
 msgstr ""
@@ -193,13 +193,13 @@ msgid "Server switcher"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Discord"
-msgstr ""
+msgstr "Discord"
 
 msgid "Subreddit"
-msgstr ""
+msgstr "Subreddit"
 
 msgid " - in case you don't know where to start"
 msgstr ""
@@ -221,26 +221,26 @@ msgstr ""
 
 # 2fa_gateway_recover.html
 msgid "Recover account"
-msgstr ""
+msgstr "Palauta käyttäjä"
 
 msgid "Can't find a way to get back access to your Ripple account? Fear not! If you have your recovery codes which we recommended you to print you can type one in here and we'll magically log you in this time. After you've managed to get in, please disable and then re-enable 2FA, so you won't risk losing your account again."
-msgstr ""
+msgstr "%s %s %s %s"
 
 msgid "Oh no you don't."
-msgstr ""
+msgstr "Oi oi et sinä."
 
 msgid "Get out."
-msgstr ""
+msgstr "Mee pois!"
 
 msgid "Recovery code is invalid."
 msgstr ""
 
 # register/elmo.html
 msgid "Elmo! Stop!"
-msgstr ""
+msgstr "Elmo! Lopeta!"
 
 msgid "Stop!"
-msgstr ""
+msgstr "Lopeta!"
 
 msgid "We see that you're trying to sign up while having already signed up as %s! Please note that multiaccounting is punishable, and can lead to a one month restriction!"
 msgstr ""
@@ -252,23 +252,23 @@ msgid "If you're not %s, but you're using %s's computer, please sign up on Rippl
 msgstr ""
 
 msgid "If you live with %s and you don't have your own computer from which to sign up on Ripple, then please contact support@ripple.moe, and we'll deal with your specific case."
-msgstr ""
+msgstr "Asutko %s'n kanssa?"
 
 msgid "This warning may pop up also if you're using another computer on the same network of %s. As long as you're not using the same computer, you should be all good."
 msgstr ""
 
 msgid "Don't stop me now!"
-msgstr ""
+msgstr "Älä lopeta minua nyt!"
 
 msgid "Bring me back to safety!"
-msgstr ""
+msgstr "Vie minut takaisin turvaan!"
 
 # login.html
 msgid "Log in"
-msgstr ""
+msgstr "Kirjaudu Sisään"
 
 msgid "Username (or email)"
-msgstr ""
+msgstr "Käyttäjänimi (tai sähköposti)"
 
 # in relationship to a password
 msgid "(forgot?)"
