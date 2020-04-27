@@ -35,7 +35,7 @@ TitleBar=Home Page
 				<button class="btn-hover color-4" onclick="window.location.href='/doc/rules'">Read the Rules</button>
 			</span>
 			<span class="buttons">
-				<button class="btn-hover color-3" onclick="window.open('https://discord.gg/4CzsqkK')">Discord Server</button>
+				{{ .T "<button class='btn-hover color-3' onclick="window.open('%s')">Discord Server</button>" (config "DiscordServer") | html }}
 			</span>
 			</div>
 		</div>
@@ -45,7 +45,7 @@ TitleBar=Home Page
 <div class="ui segment">
 	<h1>Hi there!</h1>
 
-	<p>If you have found an issue, do not hesitate to contact us, on our <a href="https://discord.gg/4CzsqkK" target="_blank">Discord server</a>, for example.</p>
+	<p>{{ .T "If you have found an issue, do not hesitate to contact us, on our <a href='%s' target='_blank'>Discord server</a>, for example." (config "DiscordServer") | html }} </p>
 
 	<p>Thanks!</p>
 </div>

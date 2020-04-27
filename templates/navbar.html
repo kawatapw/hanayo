@@ -33,7 +33,7 @@
 			<div class="ui dropdown item">
 				<span>{{ .T "Social" }}</span>
 				<div class="menu">
-					{{ navbarItem .Path (.T "Discord") "https://discord.gg/4CzsqkK" }}
+					{{ navbarItem .Path (.T "Discord") .Conf.DiscordServer }}
 					{{ navbarItem .Path (.T "Twitter") "https://twitter.com/osukawata" }}
 					{{ navbarItem .Path (.T "YouTube Channel") "https://www.youtube.com/channel/UCBFmWxbdVDbwQWtP-L6cU2g" }}
 					{{ navbarItem .Path (.T "Reddit") "https://www.reddit.com/r/kawata" }}
