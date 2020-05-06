@@ -135,7 +135,32 @@
 							<br>{{ with playstyle .play_style $global }}{{ $global.T "They play with %s." . }}{{ end }}
 						</div>
 						<div class="column">
-
+							{{ if and (not .badges) (not .custom_badge) }}
+								{{ $global.T "This user hasn't got any badges!" }}
+							{{ else }}
+								<div class="ui grid">
+									{{ range .badges }}
+										<div class="eight wide centered column">
+											<div>
+												<div class="badge">
+													<i class="{{ faIcon .icon }} large icon"></i>
+												</div>
+												<b>{{ .name }}</b>
+											</div>
+										</div>
+									{{ end }}
+									{{ with .custom_badge }}
+										<div class="eight wide centered column">
+											<div>
+												<div class="badge">
+													<i class="{{ faIcon .icon }} large icon"></i>
+												</div>
+												<b><i>{{ .name }}</i></b>
+											</div>
+										</div>
+									{{ end }}
+								</div>
+							{{ end }}
 						</div>
 						<div class="column">
 							{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
