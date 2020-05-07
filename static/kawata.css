@@ -159,6 +159,47 @@ p {
     padding-top: 1.1rem;
 }
 
+i.gay.icon {
+ color:#FF0000;
+ animation: gaycolorRotate 3s linear 0s infinite;
+}
+
+@keyframes gaycolorRotate {
+  from {
+    color: #d04b36;
+  }
+  20% {
+    color: #e36511;
+  }
+  40% {
+    color: #ffba00;
+  }
+  60% {
+    color: #00b180;
+  }
+  80% {
+    color: #147aab;
+  }
+   100% {
+   color: #675997;
+  }
+}
+
+.ui.header.loki {
+ border:none;
+ margin:calc(2rem - .14285em) 0 1rem;
+ padding:0;
+ font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+ font-weight:700;
+ line-height:1.2857em;
+ text-transform:none;
+ background:url("https://cdn.lowgif.com/small/ef0b748489d251e9-colorful-planets-tumblr-page-2-pics-about-space.gif");
+ color: rgba(0,240,0,.2);
+ display:inline-block;
+ background-clip: text;
+ -webkit-background-clip: text;
+}
+
 .ui.header.admin {
  border:none;
  margin:calc(2rem - .14285em) 0 1rem;
