@@ -37,124 +37,7 @@ $(document).ready(function() {
 		i18next.on("loaded", function() {
 			i();
 		});
-	loadOnlineStatus();
-	setInterval(loadOnlineStatus, 10000);
 });
-
-function formatOnlineStatusBeatmap(a) {
-	var hasLink = a.beatmap.id > 0;
-	return "<i>" + (hasLink ? "<a href='/b/" + escapeHTML(a.beatmap.id) + "'>" : "") + escapeHTML(a.text) + (hasLink ? '</a>' : '' ) + "</i>";
-}
-
-function loadOnlineStatus() {
-	// load in-game status through delta api
-	banchoAPI('clients/' + userID, {}, function(resp) {
-
-		var client = null;
-		resp.clients.forEach(function (el) {
-			if (el.type === 0 || client === null) {
-				client = el
-			}
-		});
-		if (client !== null) {
-			var icon;
-			var text;
-			switch (client.type) {
-				case 1: {
-					// irc
-					icon = 'blue comment';
-					text = 'Online through IRC';
-				}; break;
-				case 0: {
-					// bancho
-					switch (client.action.id) {
-						case 1: {
-							icon = 'bed';
-							text = 'AFK';
-						}; break
-						case 2: {
-							icon = 'teal play circle';
-							text = "Playing " + formatOnlineStatusBeatmap(client.action);
-						}; break
-						case 3: {
-							icon = 'orange paint brush';
-							text = "Editing " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						case 4: {
-							icon = 'violet paint brush';
-							text = "Modding " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						case 5: {
-							icon = 'olive gamepad';
-							text = "In Multiplayer Match";
-						}; break;
-						case 12: {
-							icon = 'green play circle';
-							text = "Multiplaying " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						case 11: {
-							icon = 'orange map signs';
-							text = "In Multiplayer Lobby";
-						}; break;
-						case 6: {
-							icon = 'pink eye';
-							text = "Spectating " + formatOnlineStatusBeatmap(client.action);
-						}; break;
-						default: {
-							icon = 'green circle';
-							text = 'Online';
-						};
-					}
-				}; break;
-				case 2: {
-					// ws
-					icon = 'green cogs';
-					text = 'Online';
-				}; break
-			}
-		} else {
-			// offline
-			icon = 'circle';
-			text = 'Offline'
-		}
-		$('#online>.icon').attr('class', icon + ' icon');
-		$('#online>span').html(text);
-	});
-}
-
-function loadMostPlayedBeatmaps(mode) {
-	var mostPlayedTable = $("#scores-zone div[data-mode=" + mode + "] table[data-type='most-played']");
-	currentPage[mode].mostPlayed++
-	api('users/most_played', {id: userID, mode: mode, p: currentPage[mode].mostPlayed, l: 5}, function (resp) {
-		if (resp.beatmaps === null) {
-			return;
-		}
-		resp.beatmaps.forEach(function(el, idx) {
-			mostPlayedTable.children('tbody').append(
-				$("<tr />").append(
-					$("<td />").append(
-						$("<h4 class='ui image header' />").append(
-							$("<img src='https://assets.ppy.sh/beatmaps/" + el.beatmap.beatmapset_id + "/covers/list.jpg' class='ui mini rounded image'>"),
-							$("<div class='content' />").append(
-								$("<a href='/b/" + el.beatmap.beatmap_id + "' />").append(
-									$('<b />').text(el.beatmap.song_name),
-									// $('<i />').text(' by OwO')
-								)
-							)
-						)
-					),
-					$("<td class='right aligned' />").append(
-						$('<i class="play circle icon" />'),
-						$('<b />').text(el.playcount)
-					)
-				)
-			)
-		})
-		if (resp.beatmaps.length === 5) {
-			mostPlayedTable.find('.load-more').removeClass('disabled')
-		}
-	})
-}
 
 function initialiseAchievements() {
 	api('users/achievements' + (currentUserID == userID ? '?all' : ''),
@@ -297,41 +180,15 @@ function initialiseScores(el, mode) {
 	el.attr("data-loaded", "1");
 	var best = defaultScoreTable.clone(true).addClass("orange");
 	var recent = defaultScoreTable.clone(true).addClass("blue");
-	var mostPlayedBeatmapsTable = $("<table class='ui table F-table yellow' data-mode='" + mode + "' />")
-			.append(
-					$("<thead />").append(
-							$("<tr />").append(
-									$("<th>"+ T("Beatmap") + "</th>"),
-									$("<th class='right aligned'>"+ T("Plays") + "</th>")
-							)
-					)
-			)
-			.append(
-					$('<tbody />')
-			)
-			.append(
-					$("<tfoot />").append(
-							$("<tr />").append(
-									$("<th colspan=2 />").append(
-											$("<div class='ui right floated pagination menu' />").append(
-													$("<a class='load-more disabled item'>" + T("Load more") + "</a>").click(loadMoreMostPlayed)
-											)
-									)
-							)
-					)
-			)
 	best.attr("data-type", "best");
 	recent.attr("data-type", "recent");
-	mostPlayedBeatmapsTable.attr("data-type", "most-played");
 	recent.addClass("no bottom margin");
 	el.append($("<div class='ui segments no bottom margin' />").append(
-		$("<div class='ui segment' />").append("<h2 class='ui header'>	" + T("Best scores") + "</h2>", best),
-		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Most played beatmaps") + "</h2>", mostPlayedBeatmapsTable),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Best scores") + "</h2>", best),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
 	));
 	loadScoresPage("best", mode);
 	loadScoresPage("recent", mode);
-	loadMostPlayedBeatmaps(mode);
 };
 function loadMoreClick() {
 	var t = $(this);
@@ -342,20 +199,12 @@ function loadMoreClick() {
 	var mode = t.parents("div[data-mode]").data("mode");
 	loadScoresPage(type, mode);
 }
-function loadMoreMostPlayed() {
-	var t = $(this);
-	if (t.hasClass("disabled"))
-		return;
-	t.addClass("disabled");
-	var mode = t.parents("div[data-mode]").data("mode");
-	loadMostPlayedBeatmaps(mode);
-}
 // currentPage for each mode
 var currentPage = {
-	0: {best: 0, recent: 0, mostPlayed: 0},
-	1: {best: 0, recent: 0, mostPlayed: 0},
-	2: {best: 0, recent: 0, mostPlayed: 0},
-	3: {best: 0, recent: 0, mostPlayed: 0},
+	0: {best: 0, recent: 0},
+	1: {best: 0, recent: 0},
+	2: {best: 0, recent: 0},
+	3: {best: 0, recent: 0},
 };
 var scoreStore = {};
 function loadScoresPage(type, mode) {
@@ -366,11 +215,10 @@ function loadScoresPage(type, mode) {
 		type: type,
 		mode: mode,
 	});
-	var limit = type === 'best' ? 10 : 5;
 	api("users/scores/" + type, {
 		mode: mode,
 		p: page,
-		l: limit,
+		l: 20,
 		id: userID,
 	}, function(r) {
 		if (r.scores == null) {
@@ -400,7 +248,7 @@ function loadScoresPage(type, mode) {
 			e.stopPropagation();
 		}).removeClass("new");
 		var enable = true;
-		if (r.scores.length !== limit)
+		if (r.scores.length != 20)
 			enable = false;
 		disableLoadMoreButton(type, mode, enable);
 	});
@@ -439,8 +287,7 @@ function viewScoreInfo() {
 			count: Math.round(s.beatmap.difficulty2[modesShort[s.play_mode]]),
 	 }),
 		"Mods":				 getScoreMods(s.mods, true),
-		"Passed":			 T(s.completed >= 2 ? "Yes" : "No"),
-		"Personal high score": T(s.completed === 3 ? "Yes" : "No")
+		"Passed":			 T(s.completed >= 2 ? "Yes" : "No")
 	};
 
 	// hits data
