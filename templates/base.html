@@ -16,8 +16,10 @@
 <body {{ if $ds }} class="ds"{{ end }}>
 	<div class="ui full height main wrapper"
 		{{ if and .DisableHH .KyutGrill }}
-		{{ else if .SolidColour }}
-		{{ end }}>
+                style="background-image: url('{{ if .KyutGrillAbsolute }}{{ .KyutGrill }}{{ else }}/static/headers/{{ .KyutGrill }}{{ end }}');"
+            {{ else if .SolidColour }}
+                style="background-color: {{ .SolidColour }}"
+            {{ end }}>
 		{{ template "navbar" . }}
 		{{ if not .DisableHH }}
 		<div class="huge heading {{ if .HeadingOnRight }}right{{ end }} dropped">
