@@ -52,3 +52,36 @@ TitleBar=Home Page
 
 </div>
 {{ end }}
+	{{/* Global Statistics */}}
+<center>
+<div class="ui center aligned container">
+        <div class="ui stackable center aligned four grid">
+            <div class="five wide column">
+                <div class="ui clear segment">
+                    <div class="ui grid">
+                        <div class="two wide column">
+                        </div>
+                        <div class="twelve wide column">
+			{{ $d := (qb "SELECT ROUND(pp) AS pp, users.username, users.id FROM scores INNER JOIN users ON scores.userid = users.id WHERE scores.play_mode = 0 AND completed = 3 AND users.privileges > 2 ORDER BY pp DESC LIMIT 1") }}
+                            <p class="status-head">{{ $d.pp }}pp</p>
+			    <p class="status-head">Done by <a href="/u/{{ $d.id }}">{{ $d.username }}</a></p>
+                            <p class="status-footer">Top Vanilla Score</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    <div class="five wide column">
+	       <div class="ui clear segment">
+	          <div class="ui grid">
+                     <div class="two wide column">
+		     </div>
+                     <div class="twelve wide column">
+			{{ $d := (qb "SELECT ROUND(pp) AS pp, users.username, users.id FROM scores_relax INNER JOIN users ON scores_relax.userid = users.id WHERE scores_relax.play_mode = 0 AND completed = 3 AND users.privileges > 2 ORDER BY pp DESC LIMIT 1") }}
+                         <p class="status-head">{{ $d.pp }}pp</p>
+ 			 <p class="status-head">Done by <a href="/rx/u/{{ $d.id }}">{{ $d.username }}</a></p>
+			 <p class="status-footer">Top Relax Score</p>
+		     </div>
+	         </div>
+	     </div>
+	</div>
+</div> {{/* Global Stats end past this /div */}}
