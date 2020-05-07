@@ -35,7 +35,7 @@ TitleBar=Home Page
 				<button class="btn-hover color-4" onclick="window.location.href='/doc/rules'">Read the Rules</button>
 			</span>
 			<span class="buttons">
-				{{ .T "<button class='btn-hover color-3' onclick="window.open('%s')">Discord Server</button>" (config "DiscordServer") | html }}
+				{{ .T "<button class='btn-hover color-3' onclick='window.open('%s')'>Discord Server</button>" (config "DiscordServer") | html }}
 			</span>
 			</div>
 		</div>
