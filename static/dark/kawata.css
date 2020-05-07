@@ -150,6 +150,32 @@ p {
     padding-top: 1.1rem;
 }
 
+i.gay.icon {
+ color:#FF0000;
+ animation: gaycolorRotate 3s linear 0s infinite;
+}
+
+@keyframes gaycolorRotate {
+  from {
+    color: #d04b36;
+  }
+  20% {
+    color: #e36511;
+  }
+  40% {
+    color: #ffba00;
+  }
+  60% {
+    color: #00b180;
+  }
+  80% {
+    color: #147aab;
+  }
+   100% {
+   color: #675997;
+  }
+}
+
 .ui.header.loki {
  border:none;
  margin:calc(2rem - .14285em) 0 1rem;
