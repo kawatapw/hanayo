@@ -122,39 +122,6 @@ function loadOnlineStatus() {
 	});
 }
 
-function loadMostPlayedBeatmaps(mode) {
-	var mostPlayedTable = $("#scores-zone div[data-mode=" + mode + "] table[data-type='most-played']");
-	currentPage[mode].mostPlayed++
-	api('users/most_played', {id: userID, mode: mode, p: currentPage[mode].mostPlayed, l: 5}, function (resp) {
-		if (resp.beatmaps === null) {
-			return;
-		}
-		resp.beatmaps.forEach(function(el, idx) {
-			mostPlayedTable.children('tbody').append(
-				$("<tr />").append(
-					$("<td />").append(
-						$("<h4 class='ui image header' />").append(
-							$("<img src='https://assets.ppy.sh/beatmaps/" + el.beatmap.beatmapset_id + "/covers/list.jpg' class='ui mini rounded image'>"),
-							$("<div class='content' />").append(
-								$("<a href='/b/" + el.beatmap.beatmap_id + "' />").append(
-									$('<b />').text(el.beatmap.song_name),
-									// $('<i />').text(' by OwO')
-								)
-							)
-						)
-					),
-					$("<td class='right aligned' />").append(
-						$('<i class="play circle icon" />'),
-						$('<b />').text(el.playcount)
-					)
-				)
-			)
-		})
-		if (resp.beatmaps.length === 5) {
-			mostPlayedTable.find('.load-more').removeClass('disabled')
-		}
-	})
-}
 
 function initialiseAchievements() {
 	api('users/achievements' + (currentUserID == userID ? '?all' : ''),
