@@ -122,6 +122,39 @@ function loadOnlineStatus() {
 	});
 }
 
+function loadMostPlayedBeatmaps(mode) {
+	var mostPlayedTable = $("#scores-zone div[data-mode=" + mode + "] table[data-type='most-played']");
+	currentPage[mode].mostPlayed++
+	api('users/most_played', {id: userID, mode: mode, p: currentPage[mode].mostPlayed, l: 5}, function (resp) {
+		if (resp.beatmaps === null) {
+			return;
+		}
+		resp.beatmaps.forEach(function(el, idx) {
+			mostPlayedTable.children('tbody').append(
+				$("<tr />").append(
+					$("<td />").append(
+						$("<h4 class='ui image header' />").append(
+							$("<img src='https://assets.ppy.sh/beatmaps/" + el.beatmap.beatmapset_id + "/covers/list.jpg' class='ui mini rounded image'>"),
+							$("<div class='content' />").append(
+								$("<a href='/b/" + el.beatmap.beatmap_id + "' />").append(
+									$('<b />').text(el.beatmap.song_name),
+									// $('<i />').text(' by OwO')
+								)
+							)
+						)
+					),
+					$("<td class='right aligned' />").append(
+						$('<i class="play circle icon" />'),
+						$('<b />').text(el.playcount)
+					)
+				)
+			)
+		})
+		if (resp.beatmaps.length === 5) {
+			mostPlayedTable.find('.load-more').removeClass('disabled')
+		}
+	})
+}
 
 function initialiseAchievements() {
 	api('users/achievements' + (currentUserID == userID ? '?all' : ''),
@@ -223,39 +256,6 @@ function setFriend(i) {
 	}
 	b.attr("data-friends", i > 0 ? 1 : 0)
 }
-function loadMostPlayedBeatmaps(mode) {
-    var mostPlayedTable = $("#scores-zone div[data-mode=" + mode + "] table[data-type='most-played']");
-    currentPage[mode].mostPlayed++
-    api('users/most_played', {id: userID, mode: mode, p: currentPage[mode].mostPlayed, l: 5}, function (resp) {
-        if (resp.beatmaps === null) {
-            return;
-        }
-        resp.beatmaps.forEach(function(el, idx) {
-            mostPlayedTable.children('tbody').append(
-                $("<tr />").append(
-                    $("<td />").append(
-                        $("<h4 class='ui image header' />").append(
-                            $("<img src='https://assets.ppy.sh/beatmaps/" + el.beatmap.beatmapset_id + "/covers/list.jpg' class='ui mini rounded image'>"),
-                            $("<div class='content' />").append(
-                                $("<a href='/b/" + el.beatmap.beatmap_id + "' />").append(
-                                    $('<b />').text(el.beatmap.song_name),
-                                    // $('<i />').text(' by OwO')
-                                )
-                            )
-                        )
-                    ),
-                    $("<td class='right aligned' />").append(
-                        $('<i class="play circle icon" />'),
-                        $('<b />').text(el.playcount)
-                    )
-                )
-            )
-        })
-        if (resp.beatmaps.length === 5) {
-            mostPlayedTable.find('.load-more').removeClass('disabled')
-        }
-    })
-}
 function friendClick() {
 	var t = $(this);
 	if (t.hasClass("loading")) return;
@@ -297,15 +297,41 @@ function initialiseScores(el, mode) {
 	el.attr("data-loaded", "1");
 	var best = defaultScoreTable.clone(true).addClass("orange");
 	var recent = defaultScoreTable.clone(true).addClass("blue");
+	var mostPlayedBeatmapsTable = $("<table class='ui table F-table yellow' data-mode='" + mode + "' />")
+			.append(
+					$("<thead />").append(
+							$("<tr />").append(
+									$("<th>"+ T("Beatmap") + "</th>"),
+									$("<th class='right aligned'>"+ T("Plays") + "</th>")
+							)
+					)
+			)
+			.append(
+					$('<tbody />')
+			)
+			.append(
+					$("<tfoot />").append(
+							$("<tr />").append(
+									$("<th colspan=2 />").append(
+											$("<div class='ui right floated pagination menu' />").append(
+													$("<a class='load-more disabled item'>" + T("Load more") + "</a>").click(loadMoreMostPlayed)
+											)
+									)
+							)
+					)
+			)
 	best.attr("data-type", "best");
 	recent.attr("data-type", "recent");
+	mostPlayedBeatmapsTable.attr("data-type", "most-played");
 	recent.addClass("no bottom margin");
 	el.append($("<div class='ui segments no bottom margin' />").append(
-		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Best scores") + "</h2>", best),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>	" + T("Best scores") + "</h2>", best),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Most played beatmaps") + "</h2>", mostPlayedBeatmapsTable),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
 	));
 	loadScoresPage("best", mode);
 	loadScoresPage("recent", mode);
+	loadMostPlayedBeatmaps(mode);
 };
 function loadMoreClick() {
 	var t = $(this);
