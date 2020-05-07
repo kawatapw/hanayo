@@ -29,7 +29,7 @@ body {
 }
 
 .ui.table {
-    background: #000000;
+    background: #00000000;
 }
 
 #userinfo {
@@ -50,7 +50,7 @@ body {
 }
 
 .ui.segment {
-    background: #101010;
+    background: #101010c4;
 }
 
 .ui.menu {
