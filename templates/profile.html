@@ -149,6 +149,7 @@
 					{{ $isChampionMania := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1032" $user.id }}
 					{{ $isChampionCTB := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1033" $user.id }}
 					{{ $isChampionCTBRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1034" $user.id }}
+					{{ $isDTFarmer := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 62" $user.id }}
 			{{if $isChampionStd}}
 				<br>
 				<br>
