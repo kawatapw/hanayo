@@ -142,7 +142,7 @@
                target="_blank" title="Quick edit username" class="ui circular mini red icon button">
                 <i class="address book outline icon"></i>
             </a>
-            {{ end }}			{{ $isChampionStd := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 71" $user.id }}
+            {{ end }}			{{ $isOKWC20181stPlace := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 71" $user.id }}
 					{{ $isChampionStdRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1029" $user.id }}
 					{{ $isChampionTaiko := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1031" $user.id }}
 					{{ $isChampionTaikoRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1030" $user.id }}
@@ -150,11 +150,11 @@
 					{{ $isChampionCTB := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1033" $user.id }}
 					{{ $isChampionCTBRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1034" $user.id }}
 					{{ $isDTFarmer := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 62" $user.id }}
-			{{if $isChampionStd}}
+			{{if $isOKWC20181stPlace}}
 				<br>
 				<br>
 				<center>
-				<font color="#d4af37"> <i class="yellow trophy icon"></i><b>osu!std Champion</b> </font>
+				<font color="#d4af37"> <i class="yellow trophy icon"></i><b>osu!Kawata World Cup 1ST Place</b> </font>
 				</center>
 			{{end}}
 			{{if $isChampionStdRX}}
