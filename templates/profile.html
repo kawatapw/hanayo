@@ -198,6 +198,13 @@
 				<font color="#d4af37"> <i class="yellow trophy icon"></i><b>osu!ctb Relax Champion</b> </font>
 				</center>
 			{{end}}
+		{{if $isDTFarmer}}
+				<br>
+				<br>
+				<center>
+				<font color="#FF0000"> <i class="red wheelchair icon"></i><b>Dirty DT Farmer</b> </font>
+				</center>
+			{{end}}
 		</div>
 		<div class="center aligned sixteen wide column">
 			{{ range $k, $v := (slice .std .taiko .ctb .mania) }}
