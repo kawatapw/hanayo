@@ -29,7 +29,7 @@ body {
 }
 
 .ui.table {
-    background: #000000;
+    background: #00000000;
 }
 
 #userinfo {
@@ -42,7 +42,7 @@ body {
 }
 
 .ui.table tr td {
-    background: #101010;
+    background: #101010c4;
 }
 
 .ui.table tfoot th {
@@ -50,7 +50,7 @@ body {
 }
 
 .ui.segment {
-    background: #101010;
+    background: #101010c4;
 }
 
 .ui.menu {
@@ -184,7 +184,7 @@ i.gay.icon {
  font-weight:700;
  line-height:1.2857em;
  text-transform:none;
- background:url("https://cdn.lowgif.com/small/ef0b748489d251e9-colorful-planets-tumblr-page-2-pics-about-space.gif");
+ background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
  color: rgba(0,240,0,.2);
  display:inline-block;
  background-clip: text;
