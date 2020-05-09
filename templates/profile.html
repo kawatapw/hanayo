@@ -93,6 +93,14 @@
 
 				</div>
 			</h1>
+			<b>
+				{{ with bget "isOnline?id=%.0f" .id }}
+                <div class="subtitle">
+                    <i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
+                    {{ if .result }}{{ $global.T "Online" }}{{ else }}{{ $global.T "Offline" }}{{ end }} 
+                </div>
+                {{ end }}
+			</b>
 		<b title="{{(country .country true)}}">{{ $global.T "%s" (country .country false) | html }}</b>
 			{{if $owner }}
 			<font color="#f654ff"><b class="ui header admin">Owner</b> </font>
@@ -291,6 +299,18 @@ They registered {{ $global.T "%s" (time $user.registered_on) | html }}
 		{{ end }}
 	{{ end }}
 {{ end }}	
+
+<div class="ui segment">
+	<h2 class="ui header">{{ $global.T "Achievements" }}</h2>
+		<div id="achievements" class="ui grid">
+		</div>
+			<div class="right aligned">
+				<button class="ui disabled button" id="load-more-achievements">
+				{{ $global.T "Load more" }}
+				</button>
+			</div>
+</div>
+
 <div class="ui four item bottom attached menu" id="mode-menu">
 	{{ range $k, $v := modes }}
 	<a class="{{ favMode $favouritemode $k }}item" data-mode="{{ $k }}" href="/u/{{ $user.id }}?mode={{ $k }}">{{ $v }}</a>
