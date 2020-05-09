@@ -297,6 +297,18 @@ They registered {{ $global.T "%s" (time $user.registered_on) | html }}
 		{{ end }}
 	{{ end }}
 {{ end }}	
+
+<div class="ui segment">
+	<h2 class="ui header">{{ $global.T "Achievements" }}</h2>
+		<div id="achievements" class="ui grid">
+		</div>
+			<div class="right aligned">
+				<button class="ui disabled button" id="load-more-achievements">
+				{{ $global.T "Load more" }}
+				</button>
+			</div>
+</div>
+
 <div class="ui four item bottom attached menu" id="mode-menu">
 	{{ range $k, $v := modes }}
 	<a class="{{ favMode $favouritemode $k }}item" data-mode="{{ $k }}" href="/u/{{ $user.id }}?mode={{ $k }}">{{ $v }}</a>
