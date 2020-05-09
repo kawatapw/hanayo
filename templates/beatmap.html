@@ -1,7 +1,10 @@
 {{ define "tpl" }}
 	<div class="ui container">
+	<link rel="stylesheet" href="/static/css/beatmaps.css">
 	{{ $ := . }}
 	{{ if ne .Beatmapset.ID 0 }}
+	<audio src="https://b.ppy.sh/preview/{{ .Beatmapset.ID }}.mp3"> </audio>
+	<div id="beatmap{{ .Beatmap.ID }}">
 		<div class="ui floating icon labeled dropdown button" id="diff-menu">
 			<i class="caret down icon"></i>
 			<span class="text">
@@ -11,7 +14,7 @@
 			</span>
 			<div class="menu">
 				{{ range .Beatmapset.ChildrenBeatmaps }}
-				<a href="/b/{{ .ID }}" class="item {{ if eq .ID $.Beatmap.ID }}active{{ end }}" data-bid="{{ .ID }}">
+				<a href="/b/{{ .ID }}" class="item {{ if eq .ID $.Beatmap.ID }}active{{ end }}" @click="beatmapID = {{ .ID }}" data-bid="{{ .ID }}">
 					<i class="attention icon"></i>
 					{{ .DiffName }}
       				(<i class="fitted star icon" style="margin-right:0"></i> {{ printf "%.2f" .DifficultyRating }})
@@ -46,6 +49,10 @@
 							<div class="ui vertical buttons">
 								<a href="osu://dl/{{ .Beatmapset.ID }}" class="ui pink labeled icon button"><i class="download icon"></i>{{ $.T "osu!direct" }}</a>
 								<a href="http://storage.ripple.moe/d/{{ .Beatmapset.ID }}" class="ui green labeled icon button"><i class="download icon"></i>{{ $.T "download" }}</a>
+								<button class="ui blue labeled icon button" @click="play()">
+							        <i :class="(playing ? 'pause' : 'play')+' icon'"></i>
+							        <% playing ? 'Pause' : 'Play' %>
+							    </button>
 								{{ if .Beatmapset.HasVideo }}
 									<a href="http://storage.ripple.moe/d/{{ .Beatmapset.ID }}?novideo" class="ui gray labeled icon button"><i class="download icon"></i>{{ $.T "download (no video)" }}</a>
 								{{ end }}
@@ -57,6 +64,7 @@
 					</div>
 				</div>
 			</div>
+			<div :class="'elapsed-bar '+(playing ? 'ongoing' : '') "></div>
 		</div>
 
 		<script>
@@ -85,8 +93,13 @@
 			<a class="item" data-relax="0">{{ .T "Classic" }}</a>
 			<a class="item" data-relax="1">{{ .T "Relax" }} <div class="ui pink horizontal mini label">{{ .T "New!" }}</div></a>
 		</div>
-
-		<table class="ui sortable fixed table">
+		<div class="ui four item menu">
+			<a :class="'item'+(mode == '0' ? ' active' : '')" @click="mode = '0'">osu!std</a>
+			<a :class="'item'+(mode == '1' ? ' active' : '')" @click="mode = '1'">osu!taiko</a>
+			<a :class="'item'+(mode == '2' ? ' active' : '')" @click="mode = '2'">osu!catch</a>
+			<a :class="'item'+(mode == '3' ? ' active' : '')" @click="mode = '3'">osu!mania</a>
+		</div>
+		<table :class="'ui fixed table '+(loading ? 'loading' : '')">
 			<thead>
 				<tr>
 					<th class="one wide">{{ .T "Rank" }} </th>
@@ -98,9 +111,28 @@
 					<th class="two wide">{{ .T "PP" }} </th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody v-if="scores.length > 0">
+				<tr v-for="(score, index) in scores">
+					<td>#<% index+1 %></td>
+					<td>
+						<img :src="'https://osu.gatari.pw/static/images/flags/'+score.country+'.png'" class="flag">
+						<a :href="'/u/'+score.userid"><% urldecode(score.username) %></a>
+					</td>
+					<td><% addSpaces(score.score) %></td>
+					<td><% getScoreMods(score.mods, false) %></td>
+					<td><% score.accuracy.toFixed(2) %>%</td>
+					<td :class="'help '+(score.max_combo == score.fc ? 'max_combo' : '')"><% score.max_combo %>x</td>
+					<td><% Math.round(score.pp) %>pp</td>
+				</tr>
 			</tbody>
 		</table>
-	{{ end }}
 	</div>
+	<script src="/static/js/jquery/jquery.min.js"></script>
+	<script src="/static/vue_modules/vue.min.js"></script>
+	<script src="/static/vue_modules/vue-axios-plugin.min.js"></script>
+	<script src="/static/vue_modules/vue-timeago.min.js"></script>
+	<script src="/static/vue/mixins/generalMixins.js"></script>
+	<script src="/static/vue/pages/beatmaps.js"></script>
+	{{ end }}
+</div>
 {{ end }}
