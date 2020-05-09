@@ -176,6 +176,14 @@ i.gay.icon {
   }
 }
 
+.user.loki {
+ background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+ color: rgba(0,240,0,.2);
+ display:inline-block;
+ background-clip: text;
+ -webkit-background-clip: text;
+}
+
 .ui.header.loki {
  border:none;
  margin:calc(2rem - .14285em) 0 1rem;
