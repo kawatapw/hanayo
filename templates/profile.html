@@ -94,10 +94,12 @@
 				</div>
 			</h1>
 			<b>
-				<div id="online" class="subtitle">
-					<i class="circle notched loading icon"></i>
-					<span></span>
-				</div>
+				{{ with bget "isOnline?id=%.0f" .id }}
+                <div class="subtitle">
+                    <i class="{{ if .result }}green{{ else }}grey{{ end }} circle icon"></i>
+                    {{ if .result }}{{ $global.T "Online" }}{{ else }}{{ $global.T "Offline" }}{{ end }} 
+                </div>
+                {{ end }}
 			</b>
 		<b title="{{(country .country true)}}">{{ $global.T "%s" (country .country false) | html }}</b>
 			{{if $owner }}
