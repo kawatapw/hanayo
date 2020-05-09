@@ -166,7 +166,7 @@
             </a>
 			<a href="https://old.kawata.pw/index.php?p=110&id={{ $global.UserID }}"
                target="_blank" title="Quick edit badges" class="ui circular mini red icon button">
-                <i class="badge icon"></i>
+                <i class="fas certificate icon"></i>
             </a>
             {{ end }}			{{ $isOKWC20181stPlace := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 71" $user.id }}
 					{{ $isChampionStdRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1029" $user.id }}
