@@ -190,6 +190,16 @@ i.gay.icon {
 		format('truetype');
 }
 
+.user.og {
+ font-family: 'aAntaraDistance';
+ background:url("https://media3.giphy.com/media/MDvuDF6NcR2VO/source.gif");
+ color: rgba(0,240,0,.01);
+ display:inline-block;
+ background-clip: text;
+ font-size: 1.25em;
+ text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+}	
+
 .user.loki {
  font-family: 'aAntaraDistance';
  background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
