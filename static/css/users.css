@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Color */
+
+.user.1488 {
+ background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+ color: rgba(0,240,0,.2);
+ display:inline-block;
+ background-clip: text;
+ -webkit-background-clip: text;
+}

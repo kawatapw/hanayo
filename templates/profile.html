@@ -57,7 +57,12 @@
 			{{ $user := . }}
 			<div class="center aligned sixteen wide column">
 			<h1 class="ui header">
+			{{ $loki := has .id 1488 }}
+				{{ if $loki }}
+				<div class="user loki">
+				{{ else }}
 				<div class="bgf">
+				{{ end }}
 				{{ $isVerified := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 65" $user.id }}
 				{{ $isVerifiedCTB := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 66" $user.id }}
 				{{ $isVerifiedMania := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 67" $user.id }}
