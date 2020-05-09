@@ -176,7 +176,22 @@ i.gay.icon {
   }
 }
 
+@font-face {
+	font-family: 'aAntaraDistance';
+	src: 
+		local('a Antara Distance'),
+		local('a-Antara-Distance'),
+		url('static/fonts/aAntaraDistance.otf')
+		format('opentype');
+	src: 
+		local('a Antara Distance'),
+		local('a-Antara-Distance'),
+		url('static/fonts/aAntaraDistance.ttf')
+		format('truetype');
+}
+
 .user.loki {
+ font-family: 'aAntaraDistance';
  background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
  color: rgba(0,240,0,.2);
  display:inline-block;
