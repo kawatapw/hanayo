@@ -1,0 +1,25 @@
+.flag {
+	width: 17px;
+}
+.loading {
+	opacity: 0.7;
+}
+.max_combo {
+	color: #68adf2;
+}
+.elapsed-bar {
+	position: absolute;
+    left: 0;
+    -webkit-transition: width .25s linear;
+    transition: width .25s linear;
+    background-color: #0d71bb;
+    height: 4px;
+    transition-duration: 0s;
+    width: 0px;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.12);
+}
+
+.elapsed-bar.ongoing {
+    transition-duration: 10.0049s;
+    width: 100%;
+}
