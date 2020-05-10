@@ -1,7 +1,10 @@
 {{ define "tpl" }}
 	<div class="ui container">
+	<link rel="stylesheet" href="/static/css/beatmaps.css">
 	{{ $ := . }}
 	{{ if ne .Beatmapset.ID 0 }}
+	<audio src="https://b.ppy.sh/preview/{{ .Beatmapset.ID }}.mp3"> </audio>
+	<div id="beatmap{{ .Beatmap.ID }}">
 		<div class="ui floating icon labeled dropdown button" id="diff-menu">
 			<i class="caret down icon"></i>
 			<span class="text">
@@ -11,7 +14,7 @@
 			</span>
 			<div class="menu">
 				{{ range .Beatmapset.ChildrenBeatmaps }}
-				<a href="/b/{{ .ID }}" class="item {{ if eq .ID $.Beatmap.ID }}active{{ end }}" data-bid="{{ .ID }}">
+				<a href="/b/{{ .ID }}" class="item {{ if eq .ID $.Beatmap.ID }}active{{ end }}" @click="beatmapID = {{ .ID }}" data-bid="{{ .ID }}">
 					<i class="attention icon"></i>
 					{{ .DiffName }}
       				(<i class="fitted star icon" style="margin-right:0"></i> {{ printf "%.2f" .DifficultyRating }})
@@ -49,6 +52,10 @@
 							<div class="ui vertical buttons">
 								<a href="osu://dl/{{ .Beatmapset.ID }}" class="ui pink labeled icon button"><i class="download icon"></i>{{ $.T "osu!direct" }}</a>
 								<a href="http://storage.ripple.moe/d/{{ .Beatmapset.ID }}" class="ui green labeled icon button"><i class="download icon"></i>{{ $.T "download" }}</a>
+								<button class="ui blue labeled icon button" @click="play()">
+							        <i :class="(playing ? 'pause' : 'play')+' icon'"></i>
+							        <% playing ? 'Pause' : 'Play' %>
+							    </button>
 								{{ if .Beatmapset.HasVideo }}
 									<a href="http://storage.ripple.moe/d/{{ .Beatmapset.ID }}?novideo" class="ui gray labeled icon button"><i class="download icon"></i>{{ $.T "download (no video)" }}</a>
 								{{ end }}
@@ -58,6 +65,7 @@
 							</div>
 						</div>
 					</div>
+					<div :class="'elapsed-bar '+(playing ? 'ongoing' : '') "></div>
 				</div>
 			</div>
 		</div>
@@ -96,6 +104,12 @@
 			<tbody>
 			</tbody>
 		</table>
+	<script src="/static/js/jquery/jquery.min.js"></script>
+	<script src="/static/vue_modules/vue.min.js"></script>
+	<script src="/static/vue_modules/vue-axios-plugin.min.js"></script>
+	<script src="/static/vue_modules/vue-timeago.min.js"></script>
+	<script src="/static/vue/mixins/generalMixins.js"></script>
+	<script src="/static/vue/pages/beatmaps.js"></script>
 	{{ end }}
 	</div>
 {{ end }}

@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,400i,500,500i,600,600i,700,700i');
+
+.sorry-block {
+  align-items: self-end;
+  display: flex;
+  flex-direction: column;
+  padding: 38px;
+  z-index: 2;
+}
+
+.no-scores {
+    border-radius: 4px;
+    background-color: #fff;
+    color: #2f2f2f;
+    display: flex;
+    height: 100%;
+    border-radius: 0 10px 10px;
+    text-shadow: -1px 2px 2px rgba(0,0,0,.33);
+    box-shadow: -1px 2px 2px 1px rgba(0,0,0,.11);
+}
+
+.nothing-to-see {
+    width: 700px;
+    height: 270px;
+    margin-left:auto;
+    border-radius: 0 0 10px 10px;
+    background-image: url(/static/images/no-scores.png);
+    background-size: cover;
+    background-position-y: -110px;
+    z-index: 1;
+}
+
+.sorry-title {
+    font-size: 42px;
+    font-weight: 700;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.sorry-to-inform {
+    font-size: 14px;
+    font-family: 'Exo 2', sans-serif;
+    font-style: italic;
+    margin-top: 12px;
+}
+@media (max-width: 640px) {
+    .nothing-to-see {
+        width: 340px;
+        height: 200px;
+        margin-left:auto;
+        border-radius: 0 0 10px 10px;
+        background-image: url(/static/images/no-scores.png);
+        background-size: cover;
+        background-position-y: -10px;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    .nothing-to-see {
+        width: 3100px;
+        height: 200px;
+        margin-left:auto;
+        border-radius: 0 0 10px 10px;
+        background-image: url(/static/images/no-scores.png);
+        background-size: cover;
+        background-position-y: -10px;
+        z-index: 1;
+    }
+    .sorry-title {
+        font-size: 26px;
+        font-weight: 700;
+        font-family: 'Exo 2', sans-serif;
+    }
+
+    .sorry-to-inform {
+        font-size: 12px;
+        font-family: 'Exo 2', sans-serif;
+        font-style: italic;
+      }
+}
+
+.load {
+    opacity: 0.4;
+    transition: 200ms opacity;
+}
+
+.huge.heading.dropped.plays {
+    height: 210px;
+    /* position: initial; */
+    /* width: 1127px; */
+}
+.ui.container.plays {
+    color: #f9f9f9;
+    text-shadow: 0 2px 10px #000;
+    margin-bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.ui.container.plays>h1 {
+    font-size: 46px;
+    font-style: italic;
+    font-weight: 500;
+    color: white;
+    text-shadow: -1px 2px 2px rgba(0, 0, 0, 0.33);
+    margin-bottom: auto;
+    margin-top: auto;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.ui.container.plays {
+    /* height: 100%!important; */
+}
+
+.huge.heading.plays {
+    margin-bottom: 0;
+}
+
+.mode-selector>a {
+    color: #fff;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+}
+
+.simple-banner-swtich--reversed {
+    color: white !important;
+    text-shadow: -1px 2px 2px rgba(0, 0, 0, 0.33);
+    border-bottom: solid 2px white;
+    padding: 0 12px;
+    margin-left: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s opacity, 0.3s border-bottom-width, 0.3s margin-top;
+    font-size: 14px;
+}
+
+.mode-selector {
+    width: 100%;
+    height: 42px;
+    background-color: #222;
+    color: white;
+    justify-content: center;
+    position: relative;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.mode-change {
+    margin-right: 12px;
+    margin-left: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    border-top: 2px solid #f6a;
+    text-align: center;
+    padding-top: 2px;
+    margin-right: 12px;
+    margin-left: 12px;
+    opacity: 0.7;
+    transition: 200ms opacity, 150ms border-top-width, 200ms color;
+}
+
+.mode-change:hover {
+    border-top-width: 3px;
+    opacity: 1;
+    color: #fff;
+}
+
+
+.mode-change.--selected, .simple-banner-swtich.switch--active {
+    border-top-width: 6px;
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* Grid Shit? */
+
+/// Grid system
+//
+// Generate semantic grid columns with these mixins.
+
+@mixin make-container() {
+  width: 100%;
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+@mixin make-row() {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: ($grid-gutter-width / -2);
+  margin-left: ($grid-gutter-width / -2);
+}
+
+@mixin make-col-ready() {
+  position: relative;
+  // Prevent columns from becoming too narrow when at smaller grid tiers by
+  // always setting `width: 100%;`. This works because we use `flex` values
+  // later on to override this initial width.
+  width: 100%;
+  min-height: 1px; // Prevent collapsing
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+
+/* wtf man */
+.container {
+    padding-right: 0px !important;
+    padding-left: 0px  !important;
+}
+
+
+
+/* Ranks */
+.map-rank.rank-SH:after, .map-rank.rank-S:after {
+    content: "S";
+}
+.map-rank.rank-XH:after, .map-rank.rank-X:after {
+    letter-spacing: -3px;
+    content: "SS";
+}
+.map-rank.rank-A:after{
+    content: "A";
+}
+.map-rank.rank-B:after{
+    content: "B";
+}
+.map-rank.rank-C:after{
+    content: "C";
+}
+.map-rank.rank-D:after{
+    content: "D";
+}
+.map-rank.rank-F:after{
+    content: "F";
+}
+.map-rank.rank-SH,.map-rank.rank-XH{
+    color: rgb(205, 231, 231);
+}
+.map-rank.rank-S,.map-rank.rank-X{
+    color: #fc2;
+}
+.map-rank.rank-A{
+    color: rgb(0, 224, 11);
+}
+.map-rank.rank-B{
+    color: rgb(0, 104, 224);
+}
+.map-rank.rank-C{
+    color: rgb(224, 0, 175);
+}
+.map-rank.rank-D{
+    color: rgb(187, 0, 0);
+}
+.map-rank.rank-F{
+    color: rgb(114, 0, 0);
+}
+.map-rank {   
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    font-size: 34px;
+    font-weight: 600;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* U FOOL */
+.banner-text {
+    margin-top: 0px;
+}
+
+.banner-text {
+    font-size: 46px;
+    font-style: italic;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.33) -1px 2px 2px;
+    margin-top: 24px;
+}
+
+.main-banner > * {
+    z-index: 2;
+}
+
+.selector {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    height: 27px;
+    width: 50%;
+    z-index: 2;
+}
+
+.simple-banner-swtich {
+    color: white !important;
+    text-shadow: -1px 2px 2px rgba(0, 0, 0, 0.33);
+    border-bottom: solid 2px white;
+    padding: 0 12px;
+    margin-right: 16px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s opacity, 0.3s border-bottom-width, 0.3s margin-top;
+    font-size: 14px;
+}
+
+/* YEET */
+.main-block {
+    display: grid;
+    padding: 0 24px 0 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* position: absolute; */
+    justify-content: center;
+    row-gap: 1em;
+    margin-top: -57px;
+    column-gap: 1em;
+    /*
+    box-shadow: -1px 2px 2px 1px rgba(0, 0, 0, 0.11);
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    */
+}
+
+.single-play-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 10px 5px px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    transition: 200ms box-shadow;
+    min-width: 0;
+    overflow: hidden;
+    /* position: absolute; */
+}
+
+.single-play-block:hover {
+    -webkit-box-shadow:0 10px 20px rgba(0,0,0,.25);
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+.play-map-preview {
+    height: 120px;
+    width: 100%;
+    background-size: cover;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    flex-direction: column;
+    position: relative;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+.play-map-preview:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.play-map-name {
+    font-size: 15px;
+    color: white;
+    position: relative;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.player-pp-info {
+    display: flex;
+    justify-content: space-between;
+    color: #444;
+    background: #1B1B1B;
+    align-items: baseline;
+    padding: 12px;
+}
+.player-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+.play-pp {
+    font-size: 16px;
+    font-weight: 700;
+    color: #999;
+}
+.br-line {
+    /* margin-left: 12px; */
+    /* margin-right: 12px; */
+    background-color: #0dbfb8;
+    height: 1px;
+}
+.play-main-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: #222;
+}
+.info-single {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+.info-topic {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #999;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.info-content {
+    color: #555;
+    font-size: 12px;
+    font-weight: 500;
+}
+@media (max-width: 992px) {
+    .main-block {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .main-block {
+        grid-template-columns: 1fr;
+    }
+}
+
+.single-play-block:hover {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.map-rank{
+    width: auto;
+    justify-content: start;
+    position: relative;
+    line-height: 1;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    font-size: 34px;
+    font-weight: 600;
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch--active {
+    border-bottom-width: 6px;
+    opacity: 1;
+    font-weight: 600;
+}
+
+.simple-banner-swtich:hover {
+    opacity: 1;
+}
