@@ -46,10 +46,10 @@
 						{{ if $pend }}
 							<div class="ui warning message">{{ $global.T "<b>%s</b>" "Pending" | html }}</div>
 						{{ else }}
-							<div class="ui error message">{{ $global.T "<b>%s</b>" "Brain dead" | html }}</div>
+							<div class="ui error message">{{ $global.T "<b>%s</b>" "Banned" | html }}</div>
 						{{ end }}
 					{{ else if $restr }}
-						<div class="ui error message">{{ $global.T "<b>%s</b>" "Retarded" | html }}</div>
+						<div class="ui error message">{{ $global.T "<b>%s</b>" "Restricted" | html }}</div>
 					{{ else if $disab }}
 						<div class="ui error message">{{ $global.T "<b>%s</b>" "Locked" | html }}</div>
 				{{ end }}
