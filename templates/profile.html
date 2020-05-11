@@ -146,12 +146,12 @@
 		</div>
         <div id="centered profile-actions">
             {{ if and (ne $global.Context.User.ID $global.UserID) (ne $global.Context.User.ID 0) }}
-            <button class="text-center ui circular button" id="add-friend-button">
+            <button class="ui circular mini button" id="add-friend-button">
             </button>
             
             {{ end }}
                     {{ if eq $global.Context.User.ID $global.UserID }}
-            <a href="/settings" class="text-center ui circular mini teal icon button">
+            <a href="/settings" class="ui circular mini teal icon button">
             <i class="edit icon"></i>
         </a>
             {{ end }}
