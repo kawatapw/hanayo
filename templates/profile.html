@@ -180,6 +180,7 @@
 					{{ $isGlitchedDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 73" $user.id }}
 					{{ $isDiamondDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 74" $user.id }}
 					{{ $isEmeraldDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 75" $user.id }}
+					{{ $issignedbykara := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 55" $user.id }}
 			{{if $isOKWC20181stPlace}}
 				<br>
 				<br>
@@ -255,6 +256,13 @@
 			<br>
 			<center>
 			<font color="#01DF01"><i class="yellow heart icon"></i><b class="tag diamonddonor">Diamond Donor</b> </font>
+			</center>
+			{{end}}
+			{{if $issignedbykara}}
+			<br>
+			<br>
+			<center>
+			<font color="purple"><i class="purple fas fa-paperclip"></i>Signed by Kara</font>
 			</center>
 			{{end}}
 		</div>
