@@ -17,6 +17,13 @@
     -webkit-background-clip: text;
    }
 
+.user.donor {
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    background:url("http://resources.guild-hosting.net/201604011348/themes/core/images/tag_fx/sparkle_yellow.gif");
+    color:#FFFF00;
+    display:inline-block;
+}
+
  .ui.header.dev {
     border:none;
     margin:calc(2rem - .14285em) 0 1rem;
