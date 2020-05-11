@@ -221,6 +221,8 @@ function initialiseScores(el, mode) {
 	el.attr("data-loaded", "1");
 	var best = defaultScoreTable.clone(true).addClass("orange");
 	var recent = defaultScoreTable.clone(true).addClass("blue");
+   	var topscores = defaultScoreTable.clone(true).addClass("red");
+    	topscores.attr("data-type", "top-scores");
 	var mostPlayedBeatmapsTable = $("<table class='ui table F-table yellow' data-mode='" + mode + "' />")
 			.append(
 					$("<thead />").append(
@@ -250,12 +252,14 @@ function initialiseScores(el, mode) {
 	recent.addClass("no bottom margin");
 	el.append($("<div class='ui segments no bottom margin' />").append(
 		$("<div class='ui segment' />").append("<h2 class='ui header'>	" + T("Best scores") + "</h2>", best),
+		$("<div class='ui segment' />").append("<h2 class='ui header'>	" + T("First Place Ranks") + "</h2>", topscores),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Most played beatmaps") + "</h2>", mostPlayedBeatmapsTable),
 		$("<div class='ui segment' />").append("<h2 class='ui header'>" + T("Recent scores") + "</h2>", recent)
 	));
 	loadScoresPage("best", mode);
 	loadScoresPage("recent", mode);
 	loadMostPlayedBeatmaps(mode);
+    	loadTopScoresPage("top-scores", mode);
 };
 function loadMoreClick() {
 	var t = $(this);
@@ -282,6 +286,7 @@ var currentPage = {
 	3: {best: 0, recent: 0, mostPlayed: 0},
 };
 var scoreStore = {};
+var topScoreStore = {};
 function loadScoresPage(type, mode) {
 	var table = $("#scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] tbody");
 	var page = ++currentPage[mode][type];
@@ -328,6 +333,45 @@ function loadScoresPage(type, mode) {
 			enable = false;
 		disableLoadMoreButton(type, mode, enable);
 	});
+}
+function loadTopScoresPage(type, mode) {
+    var table = $("#top-scores-zone div[data-mode=" + mode + "] table[data-type=" + type + "] tbody");
+    var page = ++currentPage[mode][type];
+    api("users/scores/first", {
+        mode: mode,
+        p: page,
+        l: 20,
+        id: userID,
+    }, function (r) {
+        if (r.scores == null) {
+            disableTopLoadMoreButton(type, mode);
+            return;
+        }
+        r.scores.forEach(function (v, idx) {
+            topScoreStore[v.id] = v;
+            if (v.completed == 0) {
+            } else {
+                var scoreRank = getRank(mode, v.mods, v.accuracy, v.count_300, v.count_100, v.count_50, v.count_miss);
+            }
+            table.append($("<tr class='new score-row' data-scoreid='" + v.id + "' />").append(
+                $(
+                    "<td><img src='/static/ranking-icons/" + scoreRank + ".png' class='score rank' alt='" + scoreRank + "'> " +
+                    escapeHTML(v.beatmap.song_name) + " <b>" + getScoreMods(v.mods) + "</b> <i>(" + v.accuracy.toFixed(2) + "%)</i><br />" +
+                    "<div class='subtitle'><time class='new timeago' datetime='" + v.time + "'>" + v.time + "</time></div></td>"
+                ),
+                $("<td><b>" + ppOrScore(v.pp, v.score) + "</b> " + weightedPP(type, page, idx, v.pp) + (v.completed == 3 ? "<br>" + downloadStar(v.id) : "") + "</td>")
+            ));
+        });
+        $(".new.timeago").timeago().removeClass("new");
+        $(".new.score-row").click(viewTopScoreInfo).removeClass("new");
+        $(".new.downloadstar").click(function (e) {
+            e.stopPropagation();
+        }).removeClass("new");
+        var enable = true;
+        if (r.scores.length != 20)
+            enable = false;
+        disableTopLoadMoreButton(type, mode, enable);
+    });
 }
 function downloadStar(id) {
 	return "<a href='/web/replays/" + id + "' class='new downloadstar'><i class='star icon'></i>" + T("Download") + "</a>";
