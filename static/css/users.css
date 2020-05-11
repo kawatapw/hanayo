@@ -24,6 +24,63 @@
     display:inline-block;
 }
 
+.profile-tag {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 500;
+    background-size: cover;
+    font-size: 13px;
+    margin-top: 12px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.12);
+    padding-bottom: 4px;
+    border-radius: 10px;
+}
+
+.profile-tag.owner {
+    background-color: #990000;
+    box-shadow: 0px 4px 0 0px #800000;
+}
+
+.profile-tag.dev {
+    background-image: url("https://i2.wp.com/windowscustomization.com/wp-content/uploads/2018/10/atlantis-nebula.gif?fit=750%2C365&quality=80&strip=all&ssl=1");
+    box-shadow: 0px 4px 0 0px #00000050;
+}
+
+.profile-tag.admin {
+    background-color: #700000;
+    box-shadow: 0px 4px 0 0px #600000;
+}
+
+.profile-tag.cm {
+    background-color: #e27030;
+    box-shadow: 0px 4px 0 0px #903b1a;
+}
+
+.profile-tag.mod {
+    background-color: #79b852;
+    box-shadow: 0px 4px 0 0px #056a08;
+}
+
+.profile-tag.bat {
+    background-color: #30e2bf;
+    box-shadow: 0px 4px 0 0px #00a786;
+}
+
+.profile-tag.alumni {
+    background-color: #303030;
+    box-shadow: 0px 4px 0 0px #202020;
+}
+
+.profile-tag.contributor {
+    background-color: #e27030;
+    box-shadow: 0px 4px 0 0px #903b1a;
+}
+
  .ui.header.dev {
     border:none;
     margin:calc(2rem - .14285em) 0 1rem;
