@@ -69,6 +69,7 @@
 				{{ else }}
 				<div class="bgf">
 				{{ end }}
+				<a title="{{(country .country true)}}">{{ $global.T "%s" (country .country false) | html }}</a>
 				<a href="/c/{{ $user.clan.id }}?mode=0">{{ $user.clan.tag }} </a>{{ .username }}
 				</div>
 			</h1>
@@ -116,37 +117,36 @@
                 </div>
                 {{ end }}
 			</b>
-		<b title="{{(country .country true)}}">{{ $global.T "%s" (country .country false) | html }}</b>
 			{{if $owner }}
-			<font color="#f654ff"><b class="ui header admin">Owner</b> </font>
-			
-			{{else if $dev}}
-			<font color="#2185d0"><b class="ui header dev">Developer</b> </font>
-			
-			{{else if $admin}}
-			<font color="#7bffb5"> <b class="ui header admin">Administrator</b> </font>
-
-			{{ else if $comman }}
-			<font color="#7078b0"> <b>Comunity Manager</b> </font>
-			
-			{{else if $mod}}
-			<font color="#2185d0"> <b>Moderator</b> </font>
-			
-			{{else if $bn}}
-			<font color="#f2711c"> <b>Nominator</b> </font>
-			
-			{{else if $isAlumni }}
-			<font color="#888888"> <b>Alumni</b> </font>
-			
-			{{ else if $isContributor }}
-			<font color="#00ffdf"> <b>Contributor</b> </font>
+			<div class="profile-tag owner"><span><b>Owner</b></span> <i class="fas fa-bolt"></i></div>
+			{{ end }}
+			{{ if $dev}}
+			<div class="profile-tag dev"><span><b>Developer</b></span> <i class="fas fa-terminal"></i></div>
+			{{ end }}
+			{{ if $admin}}
+			<div class="profile-tag admin"><span><b>Administrator</b></span> <i class="fas fa-fighter-jet"></i></div>
+			{{ end }}
+			{{ if $comman }}
+			<div class="profile-tag cm"><span><b>Community manager</b></span> <i class="fa fa-users"></i></div>
+			{{ end }}
+			{{ if $mod}}
+			<div class="profile-tag mod"><span><b>Chat mod</b></span> <i class="fa fa-hammer"></i></div>
+			{{ end }}
+			{{ if $bn}}
+			<div class="profile-tag bat"><span><b>BAT</b></span> <i class="fas fa-music"></i></div>
+			{{ end }}
+			{{ if $isAlumni }}
+			<div class="profile-tag alumni"><span><b>Alumni</b></span> <i class="fas fa-certificate"></i></div>
+			{{ end }}
+			{{ if $isContributor }}
+			<div class="profile-tag contributor"><span><b>Contributor</b></span> <i class="fas fa-star"></i></div>
 			
 
 			{{ end }}	
 		</div>
-        <div id="profile-actions">
+        <div id="centered profile-actions">
             {{ if and (ne $global.Context.User.ID $global.UserID) (ne $global.Context.User.ID 0) }}
-            <button class="ui circular button" id="add-friend-button">
+            <button class="text-center ui circular button" id="add-friend-button">
             </button>
             
             {{ end }}
@@ -167,7 +167,7 @@
             </a>
 			<a href="https://old.kawata.pw/index.php?p=110&id={{ $global.UserID }}"
                target="_blank" title="Quick edit badges" class="ui circular mini red icon button">
-                <i class="badge icon"></i>
+                <i class="fas fa-certificate"></i>
             </a>
             {{ end }}			{{ $isOKWC20181stPlace := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 71" $user.id }}
 					{{ $isChampionStdRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1029" $user.id }}

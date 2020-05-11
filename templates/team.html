@@ -29,7 +29,10 @@ KyutGrill=team2.jpg
 			<p>
 				Our Community Managers are here to take care of our social networks. Our Administrators manage the chat, and the game, making sure the <a href="https://kawata.pw/doc/rules" target="_blank"></a>rules are respected, they are in charge of the Moderator.
 			</p>
+			<h1 class="ui heading">Administrators</h1>
 			{{ template "userGroup" (.Get "badges/members?id=%d" 39) }}
+			<h1 class="ui heading">Community Managers</h1>
+			{{ template "userGroup" (.Get "badges/members?id=%d" 4) }}
 		</div>
 		<div class="ui center aligned segment">
 			<h1 class="ui heading">Moderators</h1>
