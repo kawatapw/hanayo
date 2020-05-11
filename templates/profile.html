@@ -33,7 +33,7 @@
 			{{ if eq $global.UserID $global.Context.User.ID }}
 							<a href="/settings/avatar">
 						{{ end }}
-								<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="avatar" class="ui centered image">
+								<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="avatar" class="ui centered avatar">
 						{{ if eq $global.UserID $global.Context.User.ID }}
 							</a>
 						{{ end }}
@@ -100,8 +100,9 @@
 				{{ if $gay }}
 					<i class="gay paw large icon" title="Gay"></i> 
 				{{ end }}
-
-
+				{{ if $OG }}
+					<i class="yellow fas fa-gem icon" title="OG Player"></i> 
+				{{ end }}
 				</b>
 			
 			<b>
@@ -160,6 +161,10 @@
             <a href="https://old.kawata.pw/index.php?p=104&id={{ $global.UserID }}"
                target="_blank" title="Quick edit username" class="ui circular mini red icon button">
                 <i class="address book outline icon"></i>
+            </a>
+			<a href="https://old.kawata.pw/index.php?p=110&id={{ $global.UserID }}"
+               target="_blank" title="Quick edit badges" class="ui circular mini red icon button">
+                <i class="badge icon"></i>
             </a>
             {{ end }}			{{ $isOKWC20181stPlace := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 71" $user.id }}
 					{{ $isChampionStdRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1029" $user.id }}
