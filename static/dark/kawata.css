@@ -181,12 +181,12 @@ i.gay.icon {
 	src: 
 		local('a Antara Distance'),
 		local('a-Antara-Distance'),
-		url('static/fonts/aAntaraDistance.otf')
+		url('fonts/aAntaraDistance.otf')
 		format('opentype');
 	src: 
 		local('a Antara Distance'),
 		local('a-Antara-Distance'),
-		url('static/fonts/aAntaraDistance.ttf')
+		url('fonts/aAntaraDistance.ttf')
 		format('truetype');
 }
 
@@ -199,62 +199,6 @@ i.gay.icon {
  font-size: 1.25em;
  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }	
-
-.user.loki {
- font-family: 'aAntaraDistance';
- background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
- color: rgba(0,240,0,.2);
- display:inline-block;
- background-clip: text;
- -webkit-background-clip: text;
-}
-
-.ui.header.loki {
- border:none;
- margin:calc(2rem - .14285em) 0 1rem;
- padding:0;
- font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
- font-weight:700;
- line-height:1.2857em;
- text-transform:none;
- background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
- color: rgba(0,240,0,.2);
- display:inline-block;
- background-clip: text;
- -webkit-background-clip: text;
-}
-
-.ui.header.admin {
- border:none;
- margin:calc(2rem - .14285em) 0 1rem;
- padding:0;
- font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
- font-weight:700;
- line-height:1.2857em;
- text-transform:none;
- background:url("https://cdn.lowgif.com/full/1e6cf8b9e5434f3d-glitter-sparkle-valee1215-valee1215-glitter-sparkle-animated.gif");
- color:#FF0000;
- display:inline-block;
- animation: colorRotate 6s linear 0s infinite;
-}
-
-@keyframes colorRotate {
-  from {
-    color: #6666ff;
-  }
-  10% {
-    color: #0099ff;
-  }
-  50% {
-    color: #00ff00;
-  }
-  75% {
-    color: #ff3399;
-  }
-  100% {
-    color: #6666ff;
-  }
-}
 
 .ui.search>.results img {
     border-radius: 50%;

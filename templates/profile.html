@@ -118,7 +118,7 @@
 			<font color="#f654ff"><b class="ui header admin">Owner</b> </font>
 			
 			{{else if $dev}}
-			<font color="#2185d0"><b class="ui header loki">Developer</b> </font>
+			<font color="#2185d0"><b class="ui header dev">Developer</b> </font>
 			
 			{{else if $admin}}
 			<font color="#7bffb5"> <b class="ui header admin">Administrator</b> </font>
@@ -174,6 +174,9 @@
 					{{ $isChampionCTB := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1033" $user.id }}
 					{{ $isChampionCTBRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1034" $user.id }}
 					{{ $isDTFarmer := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 62" $user.id }}
+					{{ $isGlitchedDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 73" $user.id }}
+					{{ $isDiamondDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 74" $user.id }}
+					{{ $isEmeraldDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 75" $user.id }}
 			{{if $isOKWC20181stPlace}}
 				<br>
 				<br>
@@ -223,12 +226,33 @@
 				<font color="#d4af37"> <i class="yellow trophy icon"></i><b>osu!ctb Relax Champion</b> </font>
 				</center>
 			{{end}}
-		{{if $isDTFarmer}}
+			{{if $isDTFarmer}}
 				<br>
 				<br>
 				<center>
 				<font color="#FF0000"> <i class="red wheelchair icon"></i><b>Dirty DT Farmer</b> </font>
 				</center>
+			{{end}}
+			{{if $isGlitchedDonor}}
+			<br>
+			<br>
+			<center>
+			<font color="#FF0000"><i class="yellow heart icon"></i><b class="tag glitchdonor">Glitched Donor</b> </font>
+			</center>
+			{{end}}
+			{{if $isEmeraldDonor}}
+			<br>
+			<br>
+			<center>
+			<font color="#01DF01"><i class="yellow heart icon"></i><b class="tag emeralddonor">Emerald Donor</b> </font>
+			</center>
+			{{end}}
+			{{if $isDiamondDonor}}
+			<br>
+			<br>
+			<center>
+			<font color="#01DF01"><i class="yellow heart icon"></i><b class="tag diamonddonor">Diamond Donor</b> </font>
+			</center>
 			{{end}}
 		</div>
 		<div class="center aligned sixteen wide column">
