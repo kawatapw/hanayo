@@ -57,6 +57,7 @@
 			{{ $user := . }}
 			<div class="center aligned sixteen wide column">
 			<h1 class="ui header">
+				<a title="{{(country .country true)}}">{{ $global.T "%s" (country .country false) | html }}</a>
 			{{ $loki := has .id 1488 }}
 			{{ $OG := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 72" $user.id }}
 			{{ $donor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 31" $user.id }}
@@ -69,7 +70,6 @@
 				{{ else }}
 				<div class="bgf">
 				{{ end }}
-				<a title="{{(country .country true)}}">{{ $global.T "%s" (country .country false) | html }}</a>
 				<a href="/c/{{ $user.clan.id }}?mode=0">{{ $user.clan.tag }} </a>{{ .username }}
 				</div>
 			</h1>
