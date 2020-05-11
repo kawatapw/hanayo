@@ -8,17 +8,179 @@
 
 /* Color */
 
-.user.1488 {
- background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
- color: rgba(0,240,0,.2);
- display:inline-block;
- background-clip: text;
- -webkit-background-clip: text;
-}
+.user.loki {
+    font-family: 'aAntaraDistance';
+    background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+    color: rgba(0,240,0,.2);
+    display:inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+   }
 
+ .ui.header.dev {
+    border:none;
+    margin:calc(2rem - .14285em) 0 1rem;
+    padding:0;
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight:700;
+    line-height:1.2857em;
+    text-transform:none;
+    background:url("https://media.giphy.com/media/YqhIK6Gbor6CLeloBq/giphy.gif");
+    color: rgba(0,240,0,.2);
+    display:inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+   
+.ui.header.admin {
+    border:none;
+    margin:calc(2rem - .14285em) 0 1rem;
+    padding:0;
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight:700;
+    line-height:1.2857em;
+    text-transform:none;
+    background:url("https://cdn.lowgif.com/full/1e6cf8b9e5434f3d-glitter-sparkle-valee1215-valee1215-glitter-sparkle-animated.gif");
+    color:#FF0000;
+    display:inline-block;
+    animation: colorRotate 6s linear 0s infinite;
+   }
+   
+   @keyframes colorRotate {
+     from {
+       color: #6666ff;
+     }
+     10% {
+       color: #0099ff;
+     }
+     50% {
+       color: #00ff00;
+     }
+     75% {
+       color: #ff3399;
+     }
+     100% {
+       color: #6666ff;
+     }
+   }
+   
 .ui.image.avat.bordered {
     border-radius: 20px;
     border: 2px solid;
     border-color: hsl(var(--base), 80%, 80%);
  }
 }
+
+
+.tag {
+    font-size: 1.28rem
+}
+
+.emeralddonor {
+    background: url(https://i.imgur.com/skMrJae.gif);
+    color: #01DF01;
+    font-family: 'Moonstar';
+    font-weight: bold;
+    text-shadow: 2px 0px 11px #04B404;
+    display:inline-block;
+    }
+    
+.diamonddonor {
+    background: url(http://i.imgur.com/ejTlAK7.gif);
+    color: #6E6E6E;
+    font-family: 'Spaceage';
+    font-weight: bold;
+    text-shadow: 2px 0px 11px #FAFAFA;
+    }
+
+    @font-face {
+        font-family: 'Payback';
+        src: 
+            local('Payback'),
+            local('Payback'),
+            url('fonts/Payback.ttf')
+            format('truetype');
+    }
+
+    @font-face {
+        font-family: 'PalmBeach';
+        src: 
+            local('PalmBeach'),
+            local('PalmBeach'),
+            url('fonts/PalmBeach.ttf')
+            format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Moonstar';
+        src: 
+            local('Moonstar'),
+            local('Moonstar'),
+            url('fonts/Moonstar.ttf')
+            format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Spaceage';
+        src: 
+            local('Spaceage'),
+            local('Spaceage'),
+            url('fonts/Spaceage.ttf')
+            format('truetype');
+    }
+
+.glitchdonor {
+    font-family: 'Payback';
+    font-weight: bold;
+    color: white;
+    animation: glitch 2s steps(100) infinite;
+ }
+    
+    /* GLITCH EFFECT */
+    @keyframes glitch {
+      0% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      4% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      5% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      10% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      11% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      15% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      16% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      20% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      21% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      30% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      31% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      40% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      41% {text-shadow: 50px 0 0 blue, -50px 0 0 lime;}
+      42% {text-shadow: 0 0 0 blue, 0 0 0 lime;}
+      43% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      46% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      47% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      50% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      51% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      55% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      56% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      60% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      61% {text-shadow: 30px 0 0 red, -30px 0 0 lime;}
+      62% {text-shadow: 0 0 0 red, 0 0 0 lime;}
+      63% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+      66% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+      67% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      70% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      71% {text-shadow: 70px 0 0 red, -70px 0 0 blue;}
+      72% {text-shadow: 0 0 0 red, 0 0 0 blue;}
+      73% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      76% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+      77% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      80% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+      81% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      85% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+      86% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      90% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+      91% {text-shadow: 60px 0 0 lime, -60px 0 0 blue;}
+      92% {text-shadow: 0 0 0 lime, 0 0 0 blue;}
+      92% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      95% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+      96% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      99% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      100% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+    }
