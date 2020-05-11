@@ -15,3 +15,16 @@
  background-clip: text;
  -webkit-background-clip: text;
 }
+
+.ui.avatar {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    width: 140px;
+    border: 2px solid;
+    border-color: hsl(var(--base), 80%, 80%);
+ }
+}

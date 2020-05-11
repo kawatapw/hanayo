@@ -33,7 +33,7 @@
 			{{ if eq $global.UserID $global.Context.User.ID }}
 							<a href="/settings/avatar">
 						{{ end }}
-								<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="avatar" class="ui centered image">
+								<img src="{{ config "AvatarURL" }}/{{ .id }}" alt="avatar" class="ui centered avatar">
 						{{ if eq $global.UserID $global.Context.User.ID }}
 							</a>
 						{{ end }}
@@ -58,11 +58,18 @@
 			<div class="center aligned sixteen wide column">
 			<h1 class="ui header">
 			{{ $loki := has .id 1488 }}
+			{{ $OG := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 72" $user.id }}
 				{{ if $loki }}
 				<div class="user loki">
+				{{ else if $OG }}
+				<div class="user og">
 				{{ else }}
 				<div class="bgf">
 				{{ end }}
+				<a href="/c/{{ $user.clan.id }}?mode=0">{{ $user.clan.tag }} </a>{{ .username }}
+				</div>
+			</h1>
+				<b>
 				{{ $isVerified := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 65" $user.id }}
 				{{ $isVerifiedCTB := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 66" $user.id }}
 				{{ $isVerifiedMania := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 67" $user.id }}
@@ -72,32 +79,34 @@
 				{{ $donor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 31" $user.id }}
 				{{ $twitch := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 63" $user.id }}
 				{{ $gay := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 56" $user.id }}
-				<a href="/c/{{ $user.clan.id }}?mode=0">{{ $user.clan.tag }} </a>{{ .username }} 
 				{{ if $isVerified }}
-					<i class="blue check small icon" title="Verified Player"></i>
+					<i class="blue check large icon" title="Verified Player"></i>
 				{{ end }}
 				{{ if $isVerifiedCTB }}
-					<i class="blue angle double left small icon" title="Verified CTB Player"></i> 
+					<i class="blue angle double left large icon" title="Verified CTB Player"></i> 
 				{{ end }}	
 				{{ if $isVerifiedMania }}
-					<i class="blue keyboard small icon" title="Verified Mania Player"></i> 
+					<i class="blue keyboard large icon" title="Verified Mania Player"></i> 
 				{{ end }}
 				{{ if $isVerifiedTaiko }}
-					<i class="blue music small icon" title="Verified Taiko Player"></i> 
+					<i class="blue music large icon" title="Verified Taiko Player"></i> 
 				{{ end }}
 				{{ if $donor }}
-					<i class="yellow heart small icon" title="Supporter"></i> 
+					<i class="yellow heart large icon" title="Supporter"></i> 
 				{{ end }}
 				{{ if $twitch }}
-					<i class="purple twitch small icon" title="Twitch Streamer"></i> 
+					<i class="purple twitch large icon" title="Twitch Streamer"></i> 
 				{{ end }}
 				{{ if $gay }}
-					<i class="gay paw small icon" title="Gay"></i> 
+					<i class="gay paw large icon" title="Gay"></i> 
+				{{ end }}
+				{{ if $OG }}
+					<i class="yellow fas fa-gem icon" title="OG Player"></i> 
 				{{ end }}
 
 
-				</div>
-			</h1>
+				</b>
+			
 			<b>
 				{{ with bget "isOnline?id=%.0f" .id }}
                 <div class="subtitle">
@@ -154,6 +163,10 @@
             <a href="https://old.kawata.pw/index.php?p=104&id={{ $global.UserID }}"
                target="_blank" title="Quick edit username" class="ui circular mini red icon button">
                 <i class="address book outline icon"></i>
+            </a>
+			<a href="https://old.kawata.pw/index.php?p=110&id={{ $global.UserID }}"
+               target="_blank" title="Quick edit badges" class="ui circular mini red icon button">
+                <i class="badge icon"></i>
             </a>
             {{ end }}			{{ $isOKWC20181stPlace := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 71" $user.id }}
 					{{ $isChampionStdRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1029" $user.id }}
