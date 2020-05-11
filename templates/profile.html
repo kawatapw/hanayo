@@ -22,7 +22,7 @@
 			{{ $admin  := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 39" $user.id }}
 			{{ $chatmod  := has .privileges 2883911 }}
 			{{ $mod := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 30" $user.id }}
-			{{ $bn  := has .privileges 267 }}
+			{{ $bn  := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 5" $user.id }}
 			
 				
 			<div class="ui stackable column grid">
