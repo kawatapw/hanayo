@@ -16,7 +16,7 @@
  -webkit-background-clip: text;
 }
 
-.ui.image.avat.border {
+.ui.image.avat.bordered {
     border-radius: 20px;
     border: 2px solid;
     border-color: hsl(var(--base), 80%, 80%);
