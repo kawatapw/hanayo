@@ -315,6 +315,10 @@ They registered {{ $global.T "%s" (time $user.registered_on) | html }}
 			<td class="right aligned">{{ humanize .playcount }}</td>
 		</tr>
 		<tr>
+			<td><b>{{ $global.T "Total Play Time" }}</b></td>
+			<td class="right aligned">{{ hhmm .play_time }}</td>
+		</tr>
+		<tr>
 			<td><b>{{ $global.T "Total Replays watched" }}</b></td>
 			<td class="right aligned">{{ humanize .replays_watched }}</td>
 		</tr>
