@@ -283,7 +283,7 @@ They've been here forever.
 They registered {{ $global.T "%s" (time $user.registered_on) | html }}
 {{end}}
 <br>Last seen {{ $global.T "%s" (time $user.latest_activity) | html }}
-<br>{{ with playstyle .play_style $global }}{{ $global.T "They play with %s." . }}{{ end }}
+<br>
 
 
 <div class="sixteen wide column">
