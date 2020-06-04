@@ -163,19 +163,19 @@ function setFriend(i) {
 		b
 			.addClass("blue")
 			.attr("title", T("Add friend"))
-			.html("<i class='plus icon'></i>");
+			.html("<i class='plus icon' style='margin: 0;'></i>");
 		break;
 	case 1:
 		b
 			.addClass("green")
 			.attr("title", T("Remove friend"))
-			.html("<i class='minus icon'></i>");
+			.html("<i class='minus icon' style='margin: 0;'></i>");
 		break;
 	case 2:
 		b
 			.addClass("red")
 			.attr("title", T("Unmutual friend"))
-			.html("<i class='heart icon'></i>");
+			.html("<i class='heart icon' style='margin: 0;'></i>");
 		break;
 	}
 	b.attr("data-friends", i > 0 ? 1 : 0)
