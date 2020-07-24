@@ -1,46 +1,40 @@
 {{/*###
 Handler=/
-TitleBar=Home Page
 */}}
 {{ define "tpl" }}
 {{ $cf := .ClientFlags }}
 {{ $ds := band $cf 1 }}
 {{ $   := . }}
-<div class="ui container">
-
-<div class="ui segment" id="jumbotron">
-	<div class="ui twelve column centered grid" id="jumbgrid" >
-		<div class="four wide column">
-			<img src="https://kawata.pw/static/logos/logo.png">
-		</div>
-		<div class="eight wide column">
-			<div id="welcome">
-			<h1>Welcome to osu!Kawata!</h1>
-			<br>
-
-			<p class="highlight"><span class="onlineusers">{{ .T (rediget "ripple:online_users") | html }}</span> users online • <span class="onlineusers">{{ .T (rediget "ripple:registered_users") | html }}</span> users registered</p>
-
-			<p>Kawata is the first and only osu! private server that allows Hacking. Things such as better relax, HD remover, and DT remover.</p>
-			<br>
-			{{ if .Context.User.Username }}
-			<span class="buttons">
-				<button class="btn-hover color-1" onclick="window.location.href='/u/{{ .Context.User.ID }}'">My profile</button>
-			</span>
-			{{ else }}
-			<span class="buttons">
-				<button class="btn-hover color-1" onclick="window.location.href='/register'">Sign up!</button>
-			</span>
-			{{ end }}
-			<span class="buttons">
-				<button class="btn-hover color-4" onclick="window.location.href='/doc/rules'">Read the Rules</button>
-			</span>
-			<span class="buttons">
-				{{ .T "<button class='btn-hover color-3' onclick='window.open('%s')'>Discord Server</button>" (config "DiscordServer") | html }}
-			</span>
+	<div class="ui container">
+		<h1>Homepage</h1>
+			</div>
+				</div>
+					<div class="h-container">
+					<div class="ui margined container" id="messages-container">
+					<noscript>Research has proven this website works 10000% better if you have JavaScript enabled.</noscript>
+				</div>
+					<div class="ui container">
+					<div class="ui segment penis-block" style="height: 500px; overflow: hidden;">
+					<div class="gameplay-video js-scale">
+					<video autoplay="" loop="" muted="" src="/static/images/game.m4v" class="disappearplease" style="height: 100%; width: 100%; filter: blur(2px);"></video>
+				</div>
+					<div class="hifumi"></div>
+					<div class="gameplay-above">
+					<div class="welcome-kawata">Welcome to Kawata</div>
+					<div class="welcome-bio">Kawata is the first and only osu! private server that allows Hacking. Things such as better relax, HD remover, and DT remover!</div>
+					<span class="buttons">
+						<button class="btn-hover color-2" onclick="window.location.href='/register'">Register</button>
+					</span>
+					<span class="buttons">
+						<button class="btn-hover color-1" onclick="window.location.href='/doc/rules'">Read the Rules</button>
+					</span>
+					<span class="buttons">
+						<button class="btn-hover color-3" onclick="location.href='https://discord.gg/4czsqkk'">Discord Server</button>
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 <div class="ui segment">
 	<h1>Hi there!</h1>
