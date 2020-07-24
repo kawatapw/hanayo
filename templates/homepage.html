@@ -22,9 +22,15 @@ Handler=/
 					<div class="gameplay-above">
 					<div class="welcome-kawata">Welcome to Kawata</div>
 					<div class="welcome-bio">Kawata is the first and only osu! private server that allows Hacking. Things such as better relax, HD remover, and DT remover!</div>
-					<span class="buttons">
-						<button class="btn-hover color-2" onclick="window.location.href='/register'">Register</button>
-					</span>
+					{{ if .Context.User.Username }}
+      					<span class="buttons">
+        					<button class="btn-hover color-2" onclick="window.location.href='/u/{{ .Context.User.ID }}'">My profile</button>
+     					</span>
+      					{{ else }}
+     					<span class="buttons">
+        					<button class="btn-hover color-2" onclick="window.location.href='/register'">Sign up!</button>
+     					</span>
+      					{{ end }}
 					<span class="buttons">
 						<button class="btn-hover color-1" onclick="window.location.href='/doc/rules'">Read the Rules</button>
 					</span>
