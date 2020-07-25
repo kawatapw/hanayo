@@ -49,10 +49,11 @@ body {
     background: #eeeeee;
 }
 
-.ui.segments {
+.ui.segment {
+    margin-left:auto!important;
+    margin-right:auto!important;
+    width:1127px;
     background: #f5f5f575;
-    border: none;
-    box-shadow: none;
 }
 
 .ui.menu {
@@ -120,9 +121,9 @@ p {
 }
 
 .huge.heading h1 {
-    padding: 3.0rem;
+    padding: 1.0rem;
     font-family: 'Noto Sans', 'Helvetica', 'Arial';
-    font-size: 3.0rem;
+    font-size: 40rem;
 }
 
 .ui.attached.segment {
@@ -323,4 +324,81 @@ i.gay.icon {
 }
 .btn-hover.color-11 {
        background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+.welcome-kawata {
+    text-shadow:0 1px 8px rgba(0,0,0,.75);
+    font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size:5em;
+    position:relative
+}
+
+.welcome-bio {
+text-shadow:0 1px 8px rgba(0,0,0,.75);
+font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+font-size:18px;
+font-weight:lighter;
+font-style:italic
+}
+
+.gameplay-above {
+position:absolute;
+font-family:aller regular,sans-serif;
+text-align:center;
+width:100%;
+bottom:0;
+line-height:normal;
+top:33%;
+margin-bottom:auto
+;margin-top:auto
+}
+
+.hifumi {
+transform:translateZ(0);
+position:absolute;
+left:0;
+right:0;
+top:50px;
+margin-right:auto!important;
+margin-left:auto!important;
+height:600px;
+width:calc(100% - 100px);
+max-width:900px;
+background-size:contain;
+background-position:center;
+background-image:url(/static/images/hifumi.png);
+background-repeat:no-repeat!important;
+transition:all 1s;
+filter:brightness(.6)
+}
+
+@media (max-width:991px) {
+.disappearplease {
+    display:none!important
+}
+
+.gameplay-above {
+top:38%
+}
+}
+
+@media(max-width:596px) {
+.hifumi {
+    display:none
+}
+
+.welcome-kawata {
+font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+font-size:3em
+}
+
+.welcome-bio {
+font-family:Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+font-size:16px
+}
+}
+
+.gameplay-video {
+position:absolute;
+left:0;top:0
 }
