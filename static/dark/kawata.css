@@ -114,9 +114,9 @@ p {
 }
 
 .huge.heading h1 {
-    padding: 3.0rem;
+    padding: 1.0rem;
     font-family: 'Noto Sans', 'Helvetica', 'Arial';
-    font-size: 3.0rem;
+    font-size: 40px;
 }
 
 .ui.attached.segment {
