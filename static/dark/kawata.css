@@ -119,7 +119,7 @@ p {
     font-size: 40px;
 }
 
-.ui.attached.segments {
+.ui.attached.segment {
     border: none;
 }
 
@@ -369,7 +369,7 @@ i.gay.icon {
 }
 }
 
-.ui.segments.penis-block {
+.ui.segment.penis-block {
     padding:0!important;
     margin:0!important;
     border-radius:0!important
