@@ -1,10 +1,12 @@
+{{/*###
+Handler=/
+TitleBar=Homepage
+*/}}
 {{ define "tpl" }}
 {{ $cf := .ClientFlags }}
 {{ $ds := band $cf 1 }}
 {{ $   := . }}
 	<div class="ui container">
-		<h1>Homepage</h1>
-			</div>
 				</div>
 					<div class="h-container">
 					<div class="ui margined container" id="messages-container">
@@ -68,6 +70,3 @@
 </div> {{/* Global Stats end past this /div */}}
 </div>
 {{ end }}
-{{/*###
-Handler=/
-*/}}
