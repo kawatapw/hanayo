@@ -62,13 +62,13 @@
 			{{ $OG := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 72" $user.id }}
 			{{ $donor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 31" $user.id }}
 				{{ if $loki }}
-				<div class="user loki">
+				<div class="user">
 				{{ else if $OG }}
-				<div class="user og">
+				<div class="user">
 				{{ else if $donor }}
-				<div class="user donor">
+				<div class="user">
 				{{ else }}
-				<div class="bgf">
+				<div class="user">
 				{{ end }}
 				<a href="/c/{{ $user.clan.id }}?mode=0">{{ $user.clan.tag }} </a>{{ .username }}
 				</div>
