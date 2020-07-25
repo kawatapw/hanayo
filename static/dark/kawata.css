@@ -49,11 +49,12 @@ body {
     background: #0c0c0c;
 }
 
-.ui.segment {
+.ui.filsdepute {
     margin-left:auto!important;
     margin-right:auto!important;
     width:1127px;
     background: #10101040;
+    padding:1em;
 }
 
 .ui.menu {
