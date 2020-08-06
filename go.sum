@@ -173,7 +173,5 @@ zxq.co/ripple/playstyle v0.0.0-20161106144235-198984a13cb6 h1:83Ged5YKF2OFWSPQ6l
 zxq.co/ripple/playstyle v0.0.0-20161106144235-198984a13cb6/go.mod h1:ByMeVpw6pHJ7JLr8m/ANnb5uGD5qcO8qwkRdU9vCNrs=
 zxq.co/ripple/rippleapi v0.0.0-20190720104919-34f24b8de68b h1:aQFzTtoTmzV2JMb6mtp+Wbn0a04ASMzJ61hURstQ/JI=
 zxq.co/ripple/rippleapi v0.0.0-20190720104919-34f24b8de68b/go.mod h1:2IjMtSKvePttIB8QgwN5oVoYtDjY/kn9n2WMA0MhO9M=
-zxq.co/ripple/schiavolib v0.0.0-20161109210250-9cdc674dad07 h1:fQIulgq6BDqgUiRGn1UU29Upms+eAmZxIPuF4KZFNAU=
-zxq.co/ripple/schiavolib v0.0.0-20161109210250-9cdc674dad07/go.mod h1:W6Gj7lSJNvs8oFN4bvrzoi+vcjDAEVyMfzguWzUYaok=
 zxq.co/x/rs v0.0.0-20160912144010-8b39b068a155 h1:XZjLQlgEe9Bc1/rXkTVlKaK1nAgL1h1HBF0Gke+JefE=
 zxq.co/x/rs v0.0.0-20160912144010-8b39b068a155/go.mod h1:Si0zxvRLzWMJkY68zpb+8dDDF5PlWKpqH1k52HKGH1I=
