@@ -1,4 +1,4 @@
-module zxq.co/ripple/hanayo
+module github.com/kawatapw/hanayo
 
 go 1.14
 
