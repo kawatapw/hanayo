@@ -131,7 +131,6 @@ func tfaGateway(c *gin.Context) {
 
 	resp(c, 200, "2fa_gateway.html", &baseTemplateData{
 		TitleBar:  "Two Factor Authentication",
-		KyutGrill: "2fa.jpg",
 		RequestInfo: map[string]interface{}{
 			"redir": redir,
 		},
@@ -230,7 +229,6 @@ func recover2fa(c *gin.Context) {
 	}
 	resp(c, 200, "2fa_gateway_recover.html", &baseTemplateData{
 		TitleBar:  T(c, "Recover account"),
-		KyutGrill: "2fa.jpg",
 	})
 }
 
@@ -265,7 +263,6 @@ func recover2faSubmit(c *gin.Context) {
 
 	resp(c, 200, "2fa_gateway_recover.html", &baseTemplateData{
 		TitleBar:  T(c, "Recover account"),
-		KyutGrill: "2fa.jpg",
 		Messages:  []message{errorMessage{T(c, "Recovery code is invalid.")}},
 	})
 }

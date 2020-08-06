@@ -71,7 +71,6 @@ func getSimpleByFilename(f string) templateConfig {
 func simple(c *gin.Context, p templateConfig, errs []message, requestInfo map[string]interface{}) {
 	resp(c, 200, p.Template, &baseTemplateData{
 		TitleBar:       p.TitleBar,
-		KyutGrill:      p.KyutGrill,
 		Scripts:        p.additionalJS(),
 		HeadingOnRight: p.HugeHeadingRight,
 		FormData:       normaliseURLValues(c.Request.PostForm),
