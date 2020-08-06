@@ -22,7 +22,6 @@ import (
 	"golang.org/x/oauth2"
 	discordoauth "zxq.co/ripple/go-discord-oauth"
 	"github.com/kawatapw/hanayo/modules/bbcode"
-	"github.com/kawatapw/hanayo/modules/btcaddress"
 	"github.com/kawatapw/hanayo/modules/doc"
 	fasuimappings "github.com/kawatapw/hanayo/modules/fa-semantic-mappings"
 	"zxq.co/ripple/playstyle"
@@ -502,7 +501,6 @@ var funcMap = template.FuncMap{
 		}
 		return x.Val()
 	},
-	"getBitcoinAddress": btcaddress.Get,
 	"languageInformation": func() []langInfo {
 		return languageInformation
 	},
