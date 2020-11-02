@@ -18,7 +18,6 @@
 								<a class="header" href="/u/{{ .id }}">{{ country .country false }}
 									{{ $user := . }}
 									{{ $loki := has .id 1488 }}
-									{{ $OG := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 72" $user.id }}
 									{{ $donor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 31" $user.id }}
 									{{ if $loki }}
 									<div class="user loki">
