@@ -177,9 +177,6 @@
 					{{ $isChampionCTB := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1033" $user.id }}
 					{{ $isChampionCTBRX := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 1034" $user.id }}
 					{{ $isDTFarmer := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 62" $user.id }}
-					{{ $isGlitchedDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 73" $user.id }}
-					{{ $isDiamondDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 74" $user.id }}
-					{{ $isEmeraldDonor := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 75" $user.id }}
 					{{ $issignedbykara := qb "SELECT * FROM user_badges WHERE user = ? AND badge = 55" $user.id }}
 			{{if $isOKWC20181stPlace}}
 				<br>
@@ -236,27 +233,6 @@
 				<center>
 				<font color="#FF0000"> <i class="red wheelchair icon"></i><b>Dirty DT Farmer</b> </font>
 				</center>
-			{{end}}
-			{{if $isGlitchedDonor}}
-			<br>
-			<br>
-			<center>
-			<font color="#FF0000"><i class="yellow heart icon"></i><b class="tag glitchdonor">Glitched Donor</b> </font>
-			</center>
-			{{end}}
-			{{if $isEmeraldDonor}}
-			<br>
-			<br>
-			<center>
-			<font color="#01DF01"><i class="yellow heart icon"></i><b class="tag emeralddonor">Emerald Donor</b> </font>
-			</center>
-			{{end}}
-			{{if $isDiamondDonor}}
-			<br>
-			<br>
-			<center>
-			<font color="#01DF01"><i class="yellow heart icon"></i><b class="tag diamonddonor">Diamond Donor</b> </font>
-			</center>
 			{{end}}
 			{{if $issignedbykara}}
 			<br>
