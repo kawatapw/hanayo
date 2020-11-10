@@ -39,7 +39,6 @@ var singlePageSnippets = {
         var tb = $(".ui.table tbody");
         tb.find("tr").remove();
         if (data.users == null) {
-          disableSimplepagButtons(true);
           data.users = [];
         }
         var i = 0;
@@ -59,7 +58,6 @@ var singlePageSnippets = {
                                    "'>(lv. " + v.chosen_mode.level.toFixed(0) +
                                    ")</i>")));
         });
-        disableSimplepagButtons(data.users.length < 49);
       });
     }
     function scoreOrPP(s, pp) {
