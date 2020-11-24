@@ -75,6 +75,7 @@ a.inherit:hover {
 }
 
 .footer {
+	text-align: center;
 	border-top: 1px solid #bbb;
 	padding: 10px 20px;
 }
